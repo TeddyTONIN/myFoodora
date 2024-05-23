@@ -7,5 +7,6 @@ public class Restaurant extends User {
 	private Menu menu;
 	private ArrayList<Meal> meals;
 	private Meal meal_of_the_week;
+	private  double genericDiscountFactor ;
 
 }
