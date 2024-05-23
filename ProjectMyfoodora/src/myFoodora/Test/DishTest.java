@@ -1,4 +1,4 @@
-package Tests;
+package myFoodora.Test;
 
 import static org.junit.Assert.*;
 
