@@ -45,5 +45,13 @@ public class Dish implements MenuItem {
 	}
 	
 	
+	@Override
+	public boolean equals(Object obj) {
+		if (obj==this)return true;
+		if(obj!=null && obj.getClass()==this.getClass())
+			return ((Dish)obj).getPrice()==this.price
+			&& ((Dish)obj).getCategory()==this.category;
+		return false;
+	}
 
 }

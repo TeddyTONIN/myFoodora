@@ -9,7 +9,9 @@ public class Restaurant extends User {
 	private Coordinate location;
 	private  HashMap<String, ArrayList<MenuItem>> menu = new HashMap<>();
 	private Meal meal_of_the_week;
-	private double genericDiscountFactor = 0.05;
+
+	private  double genericDiscountFactor ;
+
 	private double specialDiscountFactor;
 
 	
@@ -109,5 +111,6 @@ public class Restaurant extends User {
 		meals.add(meal);
 		meals.remove(meal);
 	}
+>>>>>>> master
 
 }
