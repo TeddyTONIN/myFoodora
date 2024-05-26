@@ -10,7 +10,10 @@ public class OrderFactory extends AbstractFactory{
 		Order order = new Order(restaurant, x,y);	
 		return order;
 	}
-	public Meal createMeal(String category, Dish item1, Dish item2, Dish item3) {
+	public Meal createMeal(String name, Dish item1, Dish item2, Dish item3) {
 		return null;
 	}
+    public Dish createDish(String name, String category, String type,double price)  {
+    	return null;
+    }
 }
