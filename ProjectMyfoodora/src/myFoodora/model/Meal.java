@@ -1,30 +1,27 @@
 package myFoodora.model;
 
-public class Meal {
+public class Meal implements MenuItem{
 	private String name;
 	private double price;
-	private String category;
+	protected String type  = null; // vegetarian, gluten-free or standard
 	private boolean is_meal_of_the_week = false;
 	private Dish item1;
 	private Dish item2;
 	
-	public Meal(String category, Dish item1, Dish item2, String name) {
+	public Meal (String name, Dish item1, Dish item2) {
 		super();
-		this.category = category;
 		this.item1 = item1;
 		this.item2 = item2;
 		this.name = name;
+		if(item1.getType()==item2.getType()) {
+			type =  item1.getType();
+		}
 	}
-	public Meal(String category, Dish item1, Dish item2) {
-		super();
-		this.category = category;
-		this.item1 = item1;
-		this.item2 = item2;
-	}
+
 	public String getName() {
 		return name;
 	}
-	public void setName() {
+	public void setName(String name) {
 		this.name = name;
 	}
 	public double getPrice() {
@@ -33,12 +30,12 @@ public class Meal {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getCategory() {
-		return category;
+	public String getType() {
+
+		return type;
 	}
-	public void setCategory(String category) {
-		this.category = category;
-	}
+
+
 	public boolean Is_meal_of_the_week() {
 		return is_meal_of_the_week;
 	}
