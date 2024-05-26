@@ -111,6 +111,4 @@ public class Restaurant extends User {
 		meals.add(meal);
 		meals.remove(meal);
 	}
->>>>>>> master
-
 }
