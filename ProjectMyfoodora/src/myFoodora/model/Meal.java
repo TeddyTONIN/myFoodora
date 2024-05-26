@@ -31,7 +31,6 @@ public class Meal implements MenuItem{
 		this.price = price;
 	}
 	public String getType() {
-
 		return type;
 	}
 
@@ -56,5 +55,8 @@ public class Meal implements MenuItem{
 		this.item2 = item2;
 	}
 	
-
+	public void computePrice(double discountfactor) {
+		price = (1-discountfactor)*(item1.getPrice()+item2.getPrice());
+	}
+	
 }

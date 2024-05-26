@@ -93,12 +93,21 @@ public class Restaurant extends User {
 	public void addMeal(String name, Dish item1, Dish item2,Dish item3) {
 		MealFactory mealFactory = new MealFactory();
 		Meal meal = mealFactory.createMeal(name,item1,item2,item3);
-		ArrayList<MenuItem > meals = menu.get("meals");
+		if (meal.Is_meal_of_the_week()) {
+			meal.computePrice(specialDiscountFactor);
+		}
+		else {
+			meal.computePrice(genericDiscountFactor);
+		}
+		
+		ArrayList<MenuItem> meals = menu.get("meals");
 		meals.add(meal);
 		
 	}
-
-	
-	
+	public void removeMeal(Meal meal) {
+		ArrayList<MenuItem> meals = menu.get("meals");
+		meals.add(meal);
+		meals.remove(meal);
+	}
 
 }

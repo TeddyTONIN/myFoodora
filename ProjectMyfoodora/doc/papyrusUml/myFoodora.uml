@@ -97,12 +97,17 @@
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_hpIkwBtGEe-T0IqDh7ccwA" name="name">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
         </ownedParameter>
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_k85bkBtGEe-T0IqDh7ccwA" name="category">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
-        </ownedParameter>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_k85bkBtGEe-T0IqDh7ccwA" name="item1" type="_WyzmoBT_Ee-eIOp6UBQ_-w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_Iz5rYBtYEe-T0IqDh7ccwA" name="item2" type="_WyzmoBT_Ee-eIOp6UBQ_-w"/>
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_LJtsMBtYEe-T0IqDh7ccwA" name="item3" type="_WyzmoBT_Ee-eIOp6UBQ_-w"/>
       </ownedOperation>
-      <ownedOperation xmi:type="uml:Operation" xmi:id="_QfkRMBtFEe-T0IqDh7ccwA" name="removeDish" visibility="package">
-        <ownedParameter xmi:type="uml:Parameter" xmi:id="_oSlacBtFEe-T0IqDh7ccwA" name="dish" type="_WyzmoBT_Ee-eIOp6UBQ_-w"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_QfkRMBtFEe-T0IqDh7ccwA" name="removeMeal" visibility="package">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_lWcUQBtXEe-T0IqDh7ccwA" type="_93z-IBT9Ee-eIOp6UBQ_-w"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_LbgfcBtbEe-T0IqDh7ccwA" name="computePrice">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_VY-1MBtbEe-T0IqDh7ccwA" name="discountfactor">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+        </ownedParameter>
       </ownedOperation>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_oX6gUBT4Ee-eIOp6UBQ_-w" name="Manager">
