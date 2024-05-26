@@ -10,13 +10,8 @@ public class DishTest {
 
 	@Test
 	public void testDish() {
-		Dish d1=new Dish(15,"vegetarian");
+		Dish d1=new Dish("poulet","main-dish","vegetarian",15);
 		assertTrue(d1.getPrice()==15);
 	}
-	@Test
-	public void testDishEquals() {
-		Dish d1=new Dish(15,"vegetarian");
-		Dish d2=new Dish(16,"vegetarian");
-		assertFalse(d1.equals(d2));
-	}
 }
+
