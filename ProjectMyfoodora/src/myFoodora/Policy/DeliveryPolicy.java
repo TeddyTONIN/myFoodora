@@ -7,5 +7,9 @@ import myFoodora.model.Courrier;
 import myFoodora.model.Order;
 
 public interface DeliveryPolicy extends Policy {
-	public Courrier allocateCourrier(ArrayList<Courrier> courriers,Order order);
+	
+	public Courrier fair_occupationDelivery(ArrayList<Courrier> courriers, Order order);
+	
+	public Courrier fastestDelivery(ArrayList<Courrier> courriers, Order order);
+
 }
