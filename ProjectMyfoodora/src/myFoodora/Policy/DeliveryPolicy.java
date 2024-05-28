@@ -8,8 +8,29 @@ import myFoodora.model.Order;
 
 public interface DeliveryPolicy extends Policy {
 	
-	public Courrier fair_occupationDelivery(ArrayList<Courrier> courriers, Order order);
+	public Courrier allocateCourrier(ArrayList<Courrier> courriers, Order order);
+
 	
-	public Courrier fastestDelivery(ArrayList<Courrier> courriers, Order order);
+	static class Fair_occupationDelivery implements DeliveryPolicy {
+
+		@Override
+		public Courrier allocateCourrier(ArrayList<Courrier> courriers, Order order) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
+	static class FastestDelivery implements DeliveryPolicy {
+
+		@Override
+		public Courrier allocateCourrier(ArrayList<Courrier> courriers, Order order) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+	}
 
 }
+
+
+

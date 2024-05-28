@@ -11,6 +11,10 @@ public class Order extends OrderFactory {
     private Map<Meal, Integer> mealQuantityMap = new HashMap<>();
     private Coordinate position;
     private boolean delivered = false;
+    private double totalFee;
+	private double serviceFee;
+	private double markupPercentage;
+	private double deliveryCost;
     
     public Order(Restaurant restaurant, double x,double y ) {
     	position = new Coordinate (x,y);
@@ -54,9 +58,34 @@ public class Order extends OrderFactory {
 	public void setDelivered(boolean delivered) {
 		this.delivered = delivered;
 	}
-	
-    
-    
+
+	public double getServiceFee() {
+		return serviceFee;
+	}
+
+	public void setServicefee(double servicefee) {
+		this.serviceFee = servicefee;
+	}
+
+	public double getMarkupPercentage() {
+		return markupPercentage;
+	}
+
+	public void setMarkupPercentage(double markupPercentage) {
+		this.markupPercentage = markupPercentage;
+	}
+
+	public double getDeliveryCost() {
+		return deliveryCost;
+	}
+
+	public void setDeliveryCost(double deliveryCost) {
+		this.deliveryCost = deliveryCost;
+	}
+
+	public double getTotalFee() {
+		return totalFee;
+	}	       
 
 }
 
