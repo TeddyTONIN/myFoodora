@@ -1,10 +1,15 @@
 package myFoodora.model;
+import myFoodora.design.observer.*;
+import java.util.ArrayList.*;
 
-public class Courrier extends User {
+public class Courrier extends User implements Observable{
+	
+	private ArrayList<Observer> observers = new ArrayList<Observer>();
 	private String name;
 	private String surname;
 	private Coordinate position;
 	private int counter = 0;
+	private boolean on_duty;
 	
 	public Courrier(String ID, String username, String password,String name, String surname) {
 		super(ID, username, password);
@@ -45,6 +50,17 @@ public class Courrier extends User {
 
 	public void setCounter(int counter) {
 		this.counter = counter;
+	}
+	
+	public void addObserver() {
+		
+	}
+	public void removeObserver() {
+		
+	}
+	
+	public void notify(){
+		
 	}
 
 }

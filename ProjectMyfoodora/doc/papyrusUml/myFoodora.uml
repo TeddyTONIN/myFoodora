@@ -59,6 +59,25 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_nhujsBhwEe-_N4mTYBDA-Q" name="name">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_8P-10BttEe-T0IqDh7ccwA" name="specialOffers">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+        <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_EnPbsBtuEe-T0IqDh7ccwA"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_cYh0sBtwEe-T0IqDh7ccwA" name="fidelityPlan">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_u0C4UBtxEe-T0IqDh7ccwA" name="orderHistory" aggregation="composite">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
+      </ownedAttribute>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_Fb8EgBttEe-T0IqDh7ccwA" name="placeOrder" visibility="package">
+        <ownedParameter xmi:type="uml:Parameter" xmi:id="_jJKiYBttEe-T0IqDh7ccwA" name="restaurant" type="_mBn-YBT4Ee-eIOp6UBQ_-w"/>
+      </ownedOperation>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_dRMM8BtuEe-T0IqDh7ccwA" name="attach"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_gDQE4BtuEe-T0IqDh7ccwA" name="dettach"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_mjTRgBtuEe-T0IqDh7ccwA" name="notify"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_H6TdABtwEe-T0IqDh7ccwA" name="registerFidelity"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_JyGFEBtwEe-T0IqDh7ccwA" name="unregisterFidelity"/>
+      <ownedOperation xmi:type="uml:Operation" xmi:id="_SUL-8BuREe-ILt5XoKuYvg" name="update"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_mBn-YBT4Ee-eIOp6UBQ_-w" name="Restaurant" visibility="package">
       <generalization xmi:type="uml:Generalization" xmi:id="_B2RKABT5Ee-eIOp6UBQ_-w" general="_1ekqABT3Ee-eIOp6UBQ_-w"/>
@@ -294,6 +313,15 @@
     <packagedElement xmi:type="uml:Interface" xmi:id="_tN0swBtCEe-T0IqDh7ccwA" name="MenuItem"/>
     <packagedElement xmi:type="uml:Realization" xmi:id="_0-qy4BtCEe-T0IqDh7ccwA" client="_93z-IBT9Ee-eIOp6UBQ_-w" supplier="_tN0swBtCEe-T0IqDh7ccwA"/>
     <packagedElement xmi:type="uml:Realization" xmi:id="_2bLNIBtCEe-T0IqDh7ccwA" client="_WyzmoBT_Ee-eIOp6UBQ_-w" supplier="_tN0swBtCEe-T0IqDh7ccwA"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_MsRpIBtuEe-T0IqDh7ccwA" client="_hV0WkBT4Ee-eIOp6UBQ_-w" supplier="_3kdf0BT0Ee-eIOp6UBQ_-w _Rg-Q4BUQEe-eIOp6UBQ_-w"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_MbGSMBtxEe-T0IqDh7ccwA" name="FidelityCard">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_PlACYBtxEe-T0IqDh7ccwA" name="Restaurant" visibility="package">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_Z8AScBtxEe-T0IqDh7ccwA" name="points" visibility="package">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
+      </ownedAttribute>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_wn50IBhnEe-_N4mTYBDA-Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wn_TsBhnEe-_N4mTYBDA-Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
