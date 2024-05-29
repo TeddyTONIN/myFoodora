@@ -1,5 +1,6 @@
 package myFoodora.model;
 import java.util.ArrayList;
+import myFoodora.design.observer.*;
 
 public class Customer extends User implements Observer {
 	

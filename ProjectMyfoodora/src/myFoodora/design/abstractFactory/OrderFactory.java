@@ -5,9 +5,9 @@ import myFoodora.model.*;
 
 public class OrderFactory extends AbstractFactory{
 	
-	public Order createOrder(Restaurant restaurant,double x,double y) {
+	public Order createOrder(Restaurant restaurant,Customer customer) {
 		
-		Order order = new Order(restaurant, x,y);	
+		Order order = new Order(restaurant, customer);	
 		return order;
 	}
 	public Meal createMeal(String name, Dish item1, Dish item2, Dish item3) {

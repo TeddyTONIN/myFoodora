@@ -1,6 +1,7 @@
 package myFoodora.model;
 import myFoodora.design.observer.*;
-import java.util.ArrayList.*;
+
+import java.util.ArrayList;
 
 public class Courrier extends User implements Observable{
 	
@@ -52,15 +53,14 @@ public class Courrier extends User implements Observable{
 		this.counter = counter;
 	}
 	
-	public void addObserver() {
+	public void attach(Observer ) {
 		
 	}
-	public void removeObserver() {
+	public void dettach(Observer ) {
 		
 	}
 	
-	public void notify(){
-		
+	public void notify(){	
 	}
 
 }

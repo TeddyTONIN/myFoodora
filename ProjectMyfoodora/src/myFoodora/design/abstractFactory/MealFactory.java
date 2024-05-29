@@ -1,5 +1,6 @@
 package myFoodora.design.abstractFactory;
 
+import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.Full_meal;
 import myFoodora.model.Meal;
@@ -9,7 +10,7 @@ import myFoodora.model.Restaurant;
 public class MealFactory extends AbstractFactory {
 	
 
-	public Order createOrder(Restaurant restaurant,double x,double y){
+	public Order createOrder(Restaurant restaurant,Customer customer){
 		return null;
 	}
 	
@@ -17,8 +18,9 @@ public class MealFactory extends AbstractFactory {
         if (item3 == null) {
             // If item3 is not provided, create a regular Meal
 
-            return new Meal(name, item1, item2);
-        } else {
+            return new Meal(name,item1,item2);
+            } 
+        else{
             // If item3 is provided, create a Full_meal
             return new Full_meal(name, item1, item2, item3);
         }
