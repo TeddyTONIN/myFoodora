@@ -1,5 +1,6 @@
 package myFoodora.design.abstractFactory;
 
+import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.Full_meal;
 import myFoodora.model.Meal;
@@ -9,7 +10,7 @@ import myFoodora.model.Restaurant;
 public class MealFactory extends AbstractFactory {
 	
 
-	public Order createOrder(Restaurant restaurant,double x,double y){
+	public Order createOrder(Restaurant restaurant,Customer customer){
 		return null;
 	}
 	

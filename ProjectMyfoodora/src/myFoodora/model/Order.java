@@ -6,15 +6,16 @@ import myFoodora.design.abstractFactory.OrderFactory;
 public class Order extends OrderFactory {
 	
 	private Restaurant restaurant;
-	private double price;
+	private double orderPrice;
 	private Map<Dish, Integer> dishQuantityMap = new HashMap<>();
     private Map<Meal, Integer> mealQuantityMap = new HashMap<>();
-    private Coordinate position;
+    private Customer customer;
     private boolean delivered = false;
     
-    public Order(Restaurant restaurant, double x,double y ) {
-    	position = new Coordinate (x,y);
+    public Order(Restaurant restaurant, Customer customer) {
+    	
     	this.restaurant = restaurant;
+    	this.customer = customer;
     }
 
     public void addDish(Dish dish, int quantity) {
@@ -36,18 +37,29 @@ public class Order extends OrderFactory {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	public double getPrice() {
-		return price;
+	public double getOrderPrice() {
+		return orderPrice;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setOrderPrice(double price) {
+		this.orderPrice = price;
 	}
-	public Coordinate getPosition() {
-		return position;
+	
+	public Customer getCustomer() {
+		return customer;
 	}
-	public void setPosition(Coordinate position) {
-		this.position = position;
+
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
 	}
+
+	public void setDishQuantityMap(Map<Dish, Integer> dishQuantityMap) {
+		this.dishQuantityMap = dishQuantityMap;
+	}
+
+	public void setMealQuantityMap(Map<Meal, Integer> mealQuantityMap) {
+		this.mealQuantityMap = mealQuantityMap;
+	}
+
 	public boolean isDelivered() {
 		return delivered;
 	}

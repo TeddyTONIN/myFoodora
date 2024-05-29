@@ -1,5 +1,6 @@
 package myFoodora.design.abstractFactory;
 
+import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.Meal;
 import myFoodora.model.Order;
@@ -8,7 +9,7 @@ import myFoodora.model.Restaurant;
 public class DishFactory extends AbstractFactory {
 
 	@Override
-	public Order createOrder(Restaurant restaurant, double x, double y) {
+	public Order createOrder(Restaurant restaurant,Customer customer) {
 		// TODO Auto-generated method stub
 		return null;
 	}
