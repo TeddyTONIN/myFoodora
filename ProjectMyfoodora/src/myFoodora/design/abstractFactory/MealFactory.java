@@ -17,8 +17,9 @@ public class MealFactory extends AbstractFactory {
         if (item3 == null) {
             // If item3 is not provided, create a regular Meal
 
-            return new Meal(name, item1, item2);
-        } else {
+            return new Meal(name,item1,item2);
+            } 
+        else{
             // If item3 is provided, create a Full_meal
             return new Full_meal(name, item1, item2, item3);
         }

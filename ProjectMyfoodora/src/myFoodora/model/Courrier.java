@@ -1,5 +1,6 @@
 package myFoodora.model;
 import myFoodora.design.observer.*;
+
 import java.util.ArrayList.*;
 
 public class Courrier extends User implements Observable{
@@ -59,8 +60,7 @@ public class Courrier extends User implements Observable{
 		
 	}
 	
-	public void notify(){
-		
+	public void notify(){	
 	}
 
 }
