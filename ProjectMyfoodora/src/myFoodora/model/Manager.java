@@ -4,7 +4,7 @@ public class Manager extends User {
 	private String name;
 	private String surname;
 	public Manager(String ID, String username, String password, String name, String surname) {
-		super(ID, username, password);
+		super(username, password);
 		this.name = name;
 		this.surname = surname;
 	}

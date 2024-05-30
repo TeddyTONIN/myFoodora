@@ -1,22 +1,23 @@
 package myFoodora.model;
 
 public class User {
-	private String ID;
+	private static int IDunique=0;
+	private int ID;
 	private String username;
 	private String password;
 	
-	public User(String ID, String username, String password) {
-		this.ID = ID;
+	public User(String username, String password) {
+		this.ID = IDunique;
+		IDunique=+1;
 		this.username =  username;
 		this.password = password;
-		
 	}
-	public String getID() {
+	
+	
+	public int getID() {
 		return ID;
 	}
-	public void setID(String ID) {
-		this.ID = ID;
-	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -30,4 +31,10 @@ public class User {
 		this.password = password;
 	}
 	
+	public User(String username) {
+		this.ID = IDunique;
+		IDunique=+1;
+		this.username = username;
+		this.password = "0000";
+	}
 }
