@@ -13,7 +13,7 @@ public class Courrier extends User implements Observable{
 	private boolean on_duty;
 	
 	public Courrier(String ID, String username, String password,String name, String surname) {
-		super(ID, username, password);
+		super(username, password);
 		this.name = name;
 		this.surname = surname;
 	
@@ -52,15 +52,25 @@ public class Courrier extends User implements Observable{
 	public void setCounter(int counter) {
 		this.counter = counter;
 	}
-	
-	public void attach(Observer ) {
+
+	@Override
+	public void notify(Observer observer) {
+		// TODO Auto-generated method stub
 		
 	}
-	public void dettach(Observer ) {
+
+	@Override
+	public void attach(Observer observer) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dettach() {
+		// TODO Auto-generated method stub
 		
 	}
 	
-	public void notify(){	
-	}
+
 
 }

@@ -1,6 +1,8 @@
 package myFoodora.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import myFoodora.Policy.DeliveryPolicy;
 import myFoodora.Policy.ShippedOrderSortingPolicy;
@@ -9,11 +11,10 @@ import myFoodora.Policy.TargetProfitPolicy;
 
 public class MyFoodoraSystem {
 	private static MyFoodoraSystem instance= new MyFoodoraSystem();
-	
-	private ArrayList<Courrier> courriers= new ArrayList<Courrier>();
-	private ArrayList<Manager>  managers= new ArrayList<Manager>(); 
-	private ArrayList<Restaurant> restaurants = new ArrayList<Restaurant>();
-	private ArrayList<Client> clients = new ArrayList<Client>() ; 
+	private Map<String,Restaurant> restaurants =new HashMap<>();
+	private Map<String,Courrier> courriers =new HashMap<>();
+	private Map<String,Manager> managers =new HashMap<>(); 
+	private Map<String,Client> Clients =new HashMap<>(); 
 	private ArrayList<Order> ordersHistory= new ArrayList<Order>();
 	
 	private double serviceFee;
@@ -29,7 +30,7 @@ public class MyFoodoraSystem {
 	}
 	
 	public double profitForOneOrder(Order order) {
-		return( order.getPrice()*order.getMarkupPercentage()+order.getServiceFee()-order.getDeliveryCost());
+		return( order.getOrderPrice()*order.getMarkupPercentage()+order.getServiceFee()-order.getDeliveryCost());
 	}
 	
 	public double totalIncome() {
@@ -43,4 +44,13 @@ public class MyFoodoraSystem {
 		for (Order order:ordersHistory) {S=+this.profitForOneOrder(order);}
 		return S;
 	}
+	public Map<String, Restaurant> getRestaurantsList() {
+		return restaurants;
+	}
+
+	
+	public Restaurant getRestaurant(String name) {
+		return this.getRestaurantsList().get(name);
+	}
+		
 }

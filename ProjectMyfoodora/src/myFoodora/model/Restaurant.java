@@ -16,10 +16,20 @@ public class Restaurant extends User {
 
 	
 	public Restaurant(String ID, String username, String password, String name, Coordinate location) {
-		super(ID,username,password);
+		super(username,password);
 		this.name = name;
 		this.location = location;
 		// Initialize the menu with empty ArrayLists for each category
+		menu.put("starter", new ArrayList<MenuItem>());
+        menu.put("main_dish", new ArrayList<MenuItem>());
+        menu.put("dessert", new ArrayList<MenuItem>());
+        menu.put("meals",new ArrayList<MenuItem>());
+	}
+	
+	public Restaurant(String name) {
+		super(name);
+		this.name = name;
+		this.location = new Coordinate();
 		menu.put("starter", new ArrayList<MenuItem>());
         menu.put("main_dish", new ArrayList<MenuItem>());
         menu.put("dessert", new ArrayList<MenuItem>());
@@ -111,4 +121,11 @@ public class Restaurant extends User {
 		meals.add(meal);
 		meals.remove(meal);
 	}
+
+	@Override
+	public String toString() {
+		return "Restaurant [name=" + name + ", location=" + location + "]";
+	}
+	
+	
 }
