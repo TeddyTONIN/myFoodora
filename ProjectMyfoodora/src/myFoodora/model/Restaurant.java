@@ -26,10 +26,10 @@ public class Restaurant extends User {
         menu.put("meals",new ArrayList<MenuItem>());
 	}
 	
-	public Restaurant(String name) {
+	public Restaurant(String name,double x,double y) {
 		super(name);
 		this.name = name;
-		this.location = new Coordinate();
+		this.location = new Coordinate(x,y);
 		menu.put("starter", new ArrayList<MenuItem>());
         menu.put("main_dish", new ArrayList<MenuItem>());
         menu.put("dessert", new ArrayList<MenuItem>());

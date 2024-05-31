@@ -8,9 +8,9 @@ import myFoodora.model.Restaurant;
 import myFoodora.model.User;
 
 public class UserFactory extends AbstractFactory{
-	public User createUser(String userType,String userName) {
+	public User createUser(String userType,String name,double x,double y) {
 		if(userType.equalsIgnoreCase("restaurant")) {
-			return new Restaurant(userName);
+			return new Restaurant(name,x,y);
 		}
 		return null;
 	}
