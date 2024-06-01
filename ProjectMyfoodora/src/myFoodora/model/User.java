@@ -9,7 +9,7 @@ public class User {
 	public User(String username, String password) {
 		this.ID = IDunique;
 		IDunique=+1;
-		this.username =  username;
+		this.username = username;
 		this.password = password;
 	}
 	
