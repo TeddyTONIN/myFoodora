@@ -16,8 +16,8 @@ public class app {
 			command=listMots[0];
 			
 			ArrayList<String> parameters=new ArrayList<String>();
-			for (int i=1 ;i<args.length; i++) {
-				parameters.add(args[i]);
+			for (int i=1 ;i<listMots.length; i++) {
+				parameters.add(listMots[i]);
 			}
 			switch(command) {
 			case "setup" :
