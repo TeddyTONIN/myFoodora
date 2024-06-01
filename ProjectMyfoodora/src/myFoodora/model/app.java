@@ -29,6 +29,8 @@ public class app {
 				UserInterface.registerCustomer(parameters);
 			case "exit":
 				break;
+			case "registerCourrier":
+				UserInterface.registerCourrier(parameters);
             default:
                 System.out.println("Commande non reconnue.");
                 break;

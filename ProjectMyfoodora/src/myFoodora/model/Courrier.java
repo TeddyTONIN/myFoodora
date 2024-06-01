@@ -6,33 +6,33 @@ import java.util.ArrayList;
 public class Courrier extends User implements Observable{
 	
 	private ArrayList<Observer> observers = new ArrayList<Observer>();
-	private String name;
-	private String surname;
+	private String firstName;
+	private String lastName;
 	private Coordinate position;
 	private int counter = 0;
 	private boolean on_duty;
 	
-	public Courrier(String ID, String username, String password,String name, String surname) {
+	public Courrier(String ID, String username, String password,String firstName, String surname) {
 		super(username, password);
-		this.name = name;
-		this.surname = surname;
+		this.firstName = firstName;
+
+	}
 	
+	//rajout d'un constructeur cohérent à la commande de l'interface 
+	public Courrier(String firstName, String lastName,String username,Coordinate adress,String password) {
+		super(username, password);
+		this.firstName = firstName;
+		this.lastName=lastName;
+		this.position=adress;
+		this.on_duty= true;
 	}
 
 	public String getName() {
-		return name;
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public Coordinate getPosition() {
@@ -70,6 +70,15 @@ public class Courrier extends User implements Observable{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public boolean isOn_duty() {
+		return on_duty;
+	}
+
+	public void setOn_duty(boolean on_duty) {
+		this.on_duty = on_duty;
+	}
+	
 	
 
 

@@ -14,7 +14,7 @@ public class MyFoodoraSystem {
 	private Map<String,Restaurant> restaurants =new HashMap<>();
 	private Map<String,Courrier> courriers =new HashMap<>();
 	private Map<String,Manager> managers =new HashMap<>(); 
-	private Map<String,Client> Clients =new HashMap<>(); 
+	private Map<String,Client> clients =new HashMap<>(); 
 	private ArrayList<Order> ordersHistory= new ArrayList<Order>();
 	
 	private double serviceFee;
@@ -52,5 +52,20 @@ public class MyFoodoraSystem {
 	public Restaurant getRestaurant(String name) {
 		return this.getRestaurantsList().get(name);
 	}
+	
+	public Map<String, Client> getClientsList() {
+		return clients;
+	}
+	public Client getClient(String name) {
+		return this.getClientsList().get(name);
+	}
+	
+	public Map<String, Courrier> getCourriersList() {
+		return courriers;
+	}
+	public Courrier getCourrier(String name) {
+		return this.getCourriersList().get(name);
+	}
+		
 		
 }
