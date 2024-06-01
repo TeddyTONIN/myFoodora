@@ -65,6 +65,18 @@ public class Restaurant extends User {
 		return menu.get("meals");
 	}
 
+	public ArrayList<MenuItem> getStarters() {
+		return menu.get("starter");
+	}
+	
+	public ArrayList<MenuItem> getMain_dishes() {
+		return menu.get("main_dish");
+	}
+	
+	public ArrayList<MenuItem> getDesserts() {
+		return menu.get("dessert");
+	}
+
 
 	public Meal getMeal_of_the_week() {
 		return meal_of_the_week;
