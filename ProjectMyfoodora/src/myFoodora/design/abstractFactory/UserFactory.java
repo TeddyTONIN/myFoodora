@@ -1,16 +1,34 @@
 package myFoodora.design.abstractFactory;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import myFoodora.model.Client;
+import myFoodora.model.Coordinate;
 import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.Meal;
+import myFoodora.model.MyFoodoraSystem;
 import myFoodora.model.Order;
 import myFoodora.model.Restaurant;
 import myFoodora.model.User;
 
 public class UserFactory extends AbstractFactory{
-	public User createUser(String userType,String name,double x,double y) {
+
+	public User createUser(String userType,ArrayList<String> para) {
 		if(userType.equalsIgnoreCase("restaurant")) {
-			return new Restaurant(name,x,y);
+			String [] coordinate=para.get(1).split(",");
+			double x=Double.parseDouble(coordinate[0]);
+			double y=Double.parseDouble(coordinate[1]);
+			Coordinate location=new Coordinate(x, y);
+			return new Restaurant(para.get(0),location,para.get(2));
+		}
+		if(userType.equalsIgnoreCase("client")) {
+			String [] coordinate=para.get(3).split(",");
+			double x=Double.parseDouble(coordinate[0]);
+			double y=Double.parseDouble(coordinate[1]);
+			Coordinate position= new Coordinate(x,y);
+			return new Client(para.get(0), para.get(1),para.get(2), position, para.get(4));
 		}
 		return null;
 	}
