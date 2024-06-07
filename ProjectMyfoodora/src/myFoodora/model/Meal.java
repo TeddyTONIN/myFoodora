@@ -3,7 +3,7 @@ package myFoodora.model;
 public class Meal implements MenuItem{
 	private String name;
 	private double price;
-	protected String type  = null; // vegetarian, gluten-free or standard
+	protected FoodCategory type  = null; // vegetarian, gluten-free or standard
 	private boolean is_meal_of_the_week = false;
 	private Dish item1;
 	private Dish item2;
@@ -30,7 +30,7 @@ public class Meal implements MenuItem{
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getType() {
+	public FoodCategory getType() {
 		return type;
 	}
 

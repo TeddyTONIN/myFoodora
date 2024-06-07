@@ -66,6 +66,9 @@ public class MyFoodoraSystem {
 	public Courrier getCourrier(String name) {
 		return this.getCourriersList().get(name);
 	}
-		
+	
+	public ArrayList<Order> getOrdersHistory() {
+		return ordersHistory;
+	}
 		
 }

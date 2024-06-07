@@ -4,11 +4,13 @@ package myFoodora.model;
 import java.util.ArrayList;
 
 import myFoodora.design.abstractFactory.DishFactory;
+import myFoodora.design.abstractFactory.OrderFactory;
 import myFoodora.design.abstractFactory.UserFactory;
 
 public class UserInterface {
 	static UserFactory uF= new UserFactory();
 	static DishFactory dF = new DishFactory();
+	static OrderFactory oF= new OrderFactory();
 	
 	public static void registerRestaurant(ArrayList<String> para) {
 		MyFoodoraSystem.getInstance().getRestaurantsList().put(para.get(0), (Restaurant) uF.createUser("restaurant",para));
@@ -24,5 +26,9 @@ public class UserInterface {
 	
 	public static void addDishRestaurantMenu(String RestaurantName,ArrayList<String> para) {
 		dF.createDish(RestaurantName,para.get(1),para);
+	}
+	
+	public static void createOrder(Customer customer,ArrayList<String> para) {
+		oF.createOrder(customer, para);
 	}
 }

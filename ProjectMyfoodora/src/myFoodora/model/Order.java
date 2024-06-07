@@ -15,11 +15,16 @@ public class Order extends OrderFactory {
 	private double serviceFee;
 	private double markupPercentage;
 	private double deliveryCost;
+	private String orderName;
     
     public Order(Restaurant restaurant, Customer customer) {
     	
     	this.restaurant = restaurant;
     	this.customer = customer;
+    }
+    public Order(Customer customer,String orderName) {
+    	this.customer= customer;
+    	this.orderName=orderName;
     }
 
     public void addDish(Dish dish, int quantity) {
@@ -97,7 +102,20 @@ public class Order extends OrderFactory {
 
 	public double getTotalFee() {
 		return totalFee;
-	}	       
+	}
+	
+	public String getOrderName() {
+		return orderName;
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this==obj)return true;
+		else if (this.getClass()==obj.getClass()) {
+			if(this.orderName==((Order)obj).getOrderName())return true ;
+			else return false;
+		}
+		return false;
+	}
 
 }
 

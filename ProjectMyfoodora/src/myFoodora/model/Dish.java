@@ -2,12 +2,12 @@ package myFoodora.model;
 
 public class Dish implements MenuItem {
 	private double price;
-	private String category; // Starter, main_dish, dessert
+	private DishCategory category; // Starter, main_dish, dessert
 	private String name;
-	private String type; // vegetarian, gluten-free or standard
+	private FoodCategory type; // vegetarian, gluten-free or standard
 	
 	
-	public Dish(String name, String category,String type,double price) {
+	public Dish(String name, DishCategory category,FoodCategory type,double price) {
 		super();
 		this.price = price;
 		this.category = category;
@@ -20,10 +20,10 @@ public class Dish implements MenuItem {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public String getCategory() {
+	public DishCategory getCategory() {
 		return category;
 	}
-	public void setCategory(String category) {
+	public void setCategory(DishCategory category) {
 		this.category = category;
 	}
 	public String getName() {
@@ -37,10 +37,10 @@ public class Dish implements MenuItem {
     public String toString() {
         return "Dish{name='" + name + "', category ='"+category+" ', price=" + price + '}';
     }
-	public String getType() {
+	public FoodCategory getType() {
 		return type;
 	}
-	public void setType(String type) {
+	public void setType(FoodCategory type) {
 		this.type = type;
 	}
 	
