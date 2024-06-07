@@ -23,6 +23,7 @@ public class Customer extends User implements Observer {
 		this.address=address;
 		this.lastName=lastName;
 		this.firstName=firstName;
+		this.OrderHistory=new ArrayList<Order>();
 	}
 
 	public String getFirstName() {

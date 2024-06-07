@@ -8,10 +8,13 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.DishCategory;
 import myFoodora.model.FoodCategory;
 import myFoodora.model.MyFoodoraSystem;
+import myFoodora.model.Order;
+import myFoodora.model.Restaurant;
 import myFoodora.model.UserInterface;
 
 public class UserInterfaceTest {
@@ -51,6 +54,7 @@ public class UserInterfaceTest {
 		paraDish.add("standard");
 		paraDish.add("25");
 		UserInterface.addDishRestaurantMenu("TourDargent",paraDish);
+		
 	}
 	
 	
@@ -76,4 +80,15 @@ public class UserInterfaceTest {
 		Dish dish=new Dish("pouletDg",cat,fcat,25);		
 		assertTrue(MyFoodoraSystem.getInstance().getRestaurant("TourDargent").getMain_dishes().contains(dish));
 	}
+	
+	@Test
+	public void testCreateOrder() {
+		Customer customer=MyFoodoraSystem.getInstance().getClient("Jonathan");
+		Order order= new Order(customer,"test");
+		ArrayList<String> paraOrder=new ArrayList<String>();
+		paraOrder.add("test");
+		UserInterface.createOrder(customer, paraOrder);
+		assertTrue(customer.getOrderHistory().contains(order));
+	}
+	
 }
