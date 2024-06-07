@@ -47,13 +47,16 @@ public class UserInterfaceTest {
 		paraCourier.add("test");
 		UserInterface.registerCourrier(paraCourier);
 		
-		//création d'un repas 
+		//ajout  d'un dish au restaurant Tour dargent 
 		ArrayList<String> paraDish=new ArrayList<String>();
 		paraDish.add("pouletDg");
 		paraDish.add("main_dish");
 		paraDish.add("standard");
 		paraDish.add("25");
 		UserInterface.addDishRestaurantMenu("TourDargent",paraDish);
+		
+		//création d'un order vide
+		Order orderVide= new Order(MyFoodoraSystem.getInstance().getClient("Jonathan"),MyFoodoraSystem.getInstance().getRestaurant("TourDargent"),"vide");
 		
 	}
 	
@@ -77,18 +80,43 @@ public class UserInterfaceTest {
 	public void testAddDishRestaurantMenu() {
 		DishCategory cat= DishCategory.main_dish;
 		FoodCategory fcat=FoodCategory.standard;
-		Dish dish=new Dish("pouletDg",cat,fcat,25);		
+		Dish dish=new Dish("pouletDg",cat,fcat,25);	
 		assertTrue(MyFoodoraSystem.getInstance().getRestaurant("TourDargent").getMain_dishes().contains(dish));
 	}
 	
 	@Test
 	public void testCreateOrder() {
 		Customer customer=MyFoodoraSystem.getInstance().getClient("Jonathan");
-		Order order= new Order(customer,"test");
+		Restaurant restaurant=MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
+		Order order= new Order(customer,restaurant,"test");
 		ArrayList<String> paraOrder=new ArrayList<String>();
+		paraOrder.add("TourDargent");
 		paraOrder.add("test");
 		UserInterface.createOrder(customer, paraOrder);
-		assertTrue(customer.getOrderHistory().contains(order));
+		assertTrue(customer.getOrderHistory().containsValue(order));
+	}
+	
+	@Test
+	public void testAddItem2Order() {
+		//création d'un dish
+		DishCategory cat= DishCategory.main_dish;
+		FoodCategory fcat=FoodCategory.standard;
+		Dish dish=new Dish("pouletDg",cat,fcat,25);
+		
+		//création d'un order pour le restau tour dargent
+		ArrayList<String> orderVide=new ArrayList<String>();
+		orderVide.add("TourDargent");
+		orderVide.add("vide");
+		UserInterface.createOrder(MyFoodoraSystem.getInstance().getClient("Jonathan"), orderVide);
+		
+		//ajout d'un item dans order
+		ArrayList<String> orderAddItem=new ArrayList<String>();
+		orderAddItem.add("vide");
+		orderAddItem.add("pouletDg");
+		UserInterface.addItem2Order(MyFoodoraSystem.getInstance().getClient("Jonathan"), orderAddItem);
+		
+		//test
+		assertTrue(MyFoodoraSystem.getInstance().getClient("Jonathan").getOrderHistory().get("vide").getItemsOrdered().contains(dish));
 	}
 	
 }

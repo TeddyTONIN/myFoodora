@@ -1,4 +1,5 @@
 package myFoodora.model;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import myFoodora.design.abstractFactory.OrderFactory;
@@ -7,8 +8,7 @@ public class Order extends OrderFactory {
 	
 	private Restaurant restaurant;
 	private double orderPrice;
-	private Map<Dish, Integer> dishQuantityMap = new HashMap<>();
-    private Map<Meal, Integer> mealQuantityMap = new HashMap<>();
+	private ArrayList<MenuItem> itemsOrdered;
     private Customer customer;
     private boolean delivered = false;
     private double totalFee;
@@ -22,24 +22,17 @@ public class Order extends OrderFactory {
     	this.restaurant = restaurant;
     	this.customer = customer;
     }
-    public Order(Customer customer,String orderName) {
+    public Order(Customer customer,Restaurant restaurant,String orderName) {
     	this.customer= customer;
+    	this.restaurant=restaurant;
     	this.orderName=orderName;
+    	this.itemsOrdered=new ArrayList<MenuItem>();
     }
 
-    public void addDish(Dish dish, int quantity) {
-        dishQuantityMap.put(dish, quantity);
-    }
-    public void addMeal(Meal meal, int quantity) {
-        mealQuantityMap.put(meal, quantity);
+    public void addMenuItem(MenuItem menuItem) {
+        itemsOrdered.add(menuItem);
     }
 
-    public Map<Dish, Integer> getDishQuantityMap() {
-        return dishQuantityMap;
-    }
-    public Map<Meal, Integer> getMealQuantityMap() {
-        return mealQuantityMap;
-    }
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
@@ -53,20 +46,15 @@ public class Order extends OrderFactory {
 		this.orderPrice = price;
 	}
 	
+	public ArrayList<MenuItem> getItemsOrdered() {
+		return itemsOrdered;
+	}
 	public Customer getCustomer() {
 		return customer;
 	}
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
-	}
-
-	public void setDishQuantityMap(Map<Dish, Integer> dishQuantityMap) {
-		this.dishQuantityMap = dishQuantityMap;
-	}
-
-	public void setMealQuantityMap(Map<Meal, Integer> mealQuantityMap) {
-		this.mealQuantityMap = mealQuantityMap;
 	}
 
 	public boolean isDelivered() {
@@ -107,6 +95,7 @@ public class Order extends OrderFactory {
 	public String getOrderName() {
 		return orderName;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this==obj)return true;
@@ -116,6 +105,11 @@ public class Order extends OrderFactory {
 		}
 		return false;
 	}
+	@Override
+	public String toString() {
+		return "Order [itemsOrdered=" + itemsOrdered + ", orderName=" + orderName + "]";
+	}
+	
 
 }
 

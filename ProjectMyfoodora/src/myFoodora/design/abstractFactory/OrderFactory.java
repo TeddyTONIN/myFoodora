@@ -8,8 +8,8 @@ import myFoodora.model.*;
 public class OrderFactory extends AbstractFactory{
 	
 	public void createOrder(Customer customer,ArrayList<String> para) {
-		Order order=new Order(customer,para.get(0));
-		customer.getOrderHistory().add(order);
+		Order order=new Order(customer,MyFoodoraSystem.getInstance().getRestaurant(para.get(0)),para.get(1));
+		customer.getOrderHistory().put(para.get(1), order);
 	}
 	public Meal createMeal(String name, Dish item1, Dish item2, Dish item3) {
 		return null;

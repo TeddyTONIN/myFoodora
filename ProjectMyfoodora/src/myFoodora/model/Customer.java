@@ -1,5 +1,8 @@
 package myFoodora.model;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
 import myFoodora.design.observer.*;
 
 public class Customer extends User implements Observer {
@@ -9,7 +12,7 @@ public class Customer extends User implements Observer {
 	private String email;
 	private String phone;
 	private boolean specialOffers = false;
-	private  ArrayList<Order> OrderHistory;
+	private Map<String,Order> OrderHistory;
 	private ArrayList<FidelityCard> FidelityPlan;
 	
 	public Customer(String username, String password, Coordinate address, String email) {
@@ -23,7 +26,7 @@ public class Customer extends User implements Observer {
 		this.address=address;
 		this.lastName=lastName;
 		this.firstName=firstName;
-		this.OrderHistory=new ArrayList<Order>();
+		this.OrderHistory=new HashMap<>();
 	}
 
 	public String getFirstName() {
@@ -67,13 +70,10 @@ public class Customer extends User implements Observer {
 		this.specialOffers = specialOffers;
 	}
 
-	public ArrayList<Order> getOrderHistory() {
+	public Map<String, Order> getOrderHistory() {
 		return OrderHistory;
 	}
 
-	public void setOrderHistory(ArrayList<Order> orderHistory) {
-		OrderHistory = orderHistory;
-	}
 
 	public ArrayList<FidelityCard> getFidelityPlan() {
 		return FidelityPlan;
@@ -93,7 +93,7 @@ public class Customer extends User implements Observer {
 	
 	public void placeOrder(Order order) {
 		
-		OrderHistory.add(order);
+		OrderHistory.put(order.getOrderName(),order);
 		
 	}
 	
