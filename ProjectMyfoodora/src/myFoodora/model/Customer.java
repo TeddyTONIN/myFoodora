@@ -5,7 +5,6 @@ import myFoodora.design.observer.*;
 public class Customer extends User implements Observer {
 	private String lastName;
 	private String firstName;
-	private String surname;
 	private Coordinate address;
 	private String email;
 	private String phone;
@@ -34,13 +33,6 @@ public class Customer extends User implements Observer {
 		this.firstName = name;
 	}
 
-	public String getSurname() {
-		return surname;
-	}
-
-	public void setSurname(String surname) {
-		this.surname = surname;
-	}
 
 	public Coordinate getAddress() {
 		return address;

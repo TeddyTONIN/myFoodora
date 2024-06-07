@@ -56,8 +56,8 @@ public class MyFoodoraSystem {
 	public Map<String, Customer> getClientsList() {
 		return clients;
 	}
-	public Customer getClient(String name) {
-		return this.getClientsList().get(name);
+	public Customer getClient(String firstName) {
+		return this.getClientsList().get(firstName);
 	}
 	
 	public Map<String, Courrier> getCourriersList() {
