@@ -111,8 +111,9 @@ public class Restaurant extends User {
 	}
 	
 	public void removeDish(Dish dish) {
-		String category = dish.getCategory();
-		ArrayList<MenuItem> dishes = menu.get(category);
+		DishCategory category = dish.getCategory();
+		String cat=category.toString();
+		ArrayList<MenuItem> dishes = menu.get(cat);
 		dishes.remove(dish);
 	}
 	public void addMeal(String name, Dish item1, Dish item2,Dish item3) {
