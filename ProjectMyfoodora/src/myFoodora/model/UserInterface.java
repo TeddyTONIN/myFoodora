@@ -15,7 +15,7 @@ public class UserInterface {
 	}
 	
 	public static void registerCustomer(ArrayList<String> para) {
-		MyFoodoraSystem.getInstance().getClientsList().put(para.get(0), (Client) uF.createUser("client",para));
+		MyFoodoraSystem.getInstance().getClientsList().put(para.get(0), (Customer) uF.createUser("client",para));
 	}
 	
 	public static void registerCourrier(ArrayList<String> para) {

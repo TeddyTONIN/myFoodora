@@ -3,8 +3,8 @@ import java.util.ArrayList;
 import myFoodora.design.observer.*;
 
 public class Customer extends User implements Observer {
-	
-	private String name;
+	private String lastName;
+	private String firstName;
 	private String surname;
 	private Coordinate address;
 	private String email;
@@ -13,20 +13,25 @@ public class Customer extends User implements Observer {
 	private  ArrayList<Order> OrderHistory;
 	private ArrayList<FidelityCard> FidelityPlan;
 	
-	public Customer(String ID, String username, String password, Coordinate address, String email,String phone) {
+	public Customer(String username, String password, Coordinate address, String email) {
 		super(username,password);
 		this.address = address;
 		this.email = email;
-		this.phone = phone;
-		
+
+	}
+	public Customer(String firstName,String lastName,String username,Coordinate address,String password) {
+		super(username,password);
+		this.address=address;
+		this.lastName=lastName;
+		this.firstName=firstName;
 	}
 
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setFirstName(String name) {
+		this.firstName = name;
 	}
 
 	public String getSurname() {
