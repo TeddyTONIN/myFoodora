@@ -1,0 +1,9 @@
+login ceo 123456789
+registerRestaurant TourDargent 45,50 TourDargent 123
+logout
+login TourDargent 123
+addDishRestaurantMenu pouletDg main_dish standard 15
+createMeal SaveurDafrique
+addDish2Meal pouletDg SaveurDafrique
+logout
+exit

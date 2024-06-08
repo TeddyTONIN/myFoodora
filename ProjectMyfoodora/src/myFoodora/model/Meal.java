@@ -17,6 +17,10 @@ public class Meal implements MenuItem{
 			type =  item1.getType();
 		}
 	}
+	public Meal(String name) {
+		super();
+		this.name=name;
+	}
 
 	public String getName() {
 		return name;
@@ -58,5 +62,11 @@ public class Meal implements MenuItem{
 	public void computePrice(double discountfactor) {
 		price = (1-discountfactor)*(item1.getPrice()+item2.getPrice());
 	}
+	@Override
+	public String toString() {
+		return "Meal [name=" + name + ", price=" + price + ", type=" + type + ", is_meal_of_the_week="
+				+ is_meal_of_the_week + ", item1=" + item1 + ", item2=" + item2 + "]";
+	}
+	
 	
 }

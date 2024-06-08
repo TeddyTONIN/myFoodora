@@ -1,45 +1,33 @@
 package myFoodora.model;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Scanner;
-public class app {
 
-	public static void main(String[] args) throws FileNotFoundException,IOException {
-		// TODO Auto-generated method stub
-		
+public class LecteurScenario {
+	
+	public static void runFileScénario(String filepath) throws IOException {
 		Manager ceo=new Manager("ceo","123456789","Teddy","Olivers");
 		MyFoodoraSystem.getInstance().getManagersList().put("ceo", ceo);
-		
-		Scanner scanner=new Scanner(System.in);
+		FileReader fr=new FileReader(filepath);
+		BufferedReader reader=new BufferedReader(fr);
 		String command="";
-		String line="";
-		while(!command.equals("exit")) {
+		while(command.equals("exit")==false) {
 			System.out.println("Entrez une commande ou fermez le système:");
-			line =scanner.nextLine();
+			String line=reader.readLine();
 			String []listMots= line.split(" ");
 			command=listMots[0];
 			ArrayList<String> parameters=new ArrayList<String>();
-			
 			if (listMots.length>=2){
 				for (int i=1 ;i<listMots.length; i++) {
 					parameters.add(listMots[i]);
 				}
 			}
 			switch(command) {
-			case "runtest":
-				LecteurScenario.runFileScénario(parameters.get(0));
-				break;
-			case "help":
-				System.out.println("Le système contient les commandes suivantes:");
-				System.out.println(Help.getHelp());
-				break;
 			case "exit":
-				System.out.println("Fermeture de l'application réussit !");
-				scanner.close();
+				reader.close();
+				System.out.println(" \n \n CHARGEMENT DU SCENARIO REUSSIT !!");
 				break;
 			default:
 				System.out.println("Commande non reconnue");
@@ -56,7 +44,7 @@ public class app {
 					user=(Courrier)user;
 					while(!command.equals("logout")) {
 						System.out.println("Mettre à jour votre état dans l'application ?");
-						line =scanner.nextLine();
+						line =reader.readLine();
 						listMots= line.split(" ");
 						command=listMots[0];
 						parameters=new ArrayList<String>();
@@ -86,8 +74,8 @@ public class app {
 				else if (user instanceof Restaurant) {
 					Restaurant restaurant=(Restaurant)user;
 					while(!command.equals("logout")) {
-						System.out.println("Entrez une commande restaurant");
-						line =scanner.nextLine();
+						System.out.println("Entrez une commande restaurant :");
+						line =reader.readLine();
 						listMots= line.split(" ");
 						command=listMots[0];
 						parameters=new ArrayList<String>();
@@ -138,8 +126,8 @@ public class app {
 				else if (user instanceof Customer) {
 					Customer customer=(Customer)user;
 					while(!command.equals("logout")) {
-						System.out.println("Entrez une commande Customer");
-						line =scanner.nextLine();
+						System.out.println("Entrez une commande Customer :");
+						line =reader.readLine();
 						listMots= line.split(" ");
 						command=listMots[0];
 						parameters=new ArrayList<String>();
@@ -169,9 +157,9 @@ public class app {
 				
 				else if (user instanceof Manager) {
 					user=(Manager)user;
-					while(!command.equals("logout")) {
+					while(command.equals("logout")==false) {
 						System.out.println("Entrez une commande Manager :");
-						line =scanner.nextLine();
+						line =reader.readLine();
 						listMots= line.split(" ");
 						command=listMots[0];
 						parameters=new ArrayList<String>();
@@ -190,12 +178,15 @@ public class app {
 			                break;
 						case "registerRestaurant":
 							UserInterface.registerRestaurant(parameters);
+							System.out.println("Création du restaurant "+parameters.get(0)+" reussie");
 							break;	
 						case "registerCustomer":
 							UserInterface.registerCustomer(parameters);
+							System.out.println("Création du client "+parameters.get(0)+" reussie");
 							break;
 						case "registerCourrier":
 							UserInterface.registerCourrier(parameters);
+							System.out.println("Création du courrier "+parameters.get(0)+" reussie");
 							break;
 						case "setDeliveryPolicy":
 							UserInterface.setDeliveryPolicy(parameters);
@@ -217,5 +208,4 @@ public class app {
 			}
 		}
 	}
-
 }

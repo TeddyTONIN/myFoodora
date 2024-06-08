@@ -114,6 +114,7 @@ public class Restaurant extends User {
 		dishes.add(dish);
 		
 	}
+
 	
 	public void removeDish(Dish dish) {
 		DishCategory category = dish.getCategory();
@@ -121,24 +122,55 @@ public class Restaurant extends User {
 		ArrayList<MenuItem> dishes = menu.get(cat);
 		dishes.remove(dish);
 	}
-	public void addMeal(String name, Dish item1, Dish item2,Dish item3) {
-		MealFactory mealFactory = new MealFactory();
-		Meal meal = mealFactory.createMeal(name,item1,item2,item3);
-		if (meal.Is_meal_of_the_week()) {
-			meal.computePrice(specialDiscountFactor);
-		}
-		else {
-			meal.computePrice(genericDiscountFactor);
-		}
-		
-		ArrayList<MenuItem> meals = menu.get("meals");
-		meals.add(meal);
-		
+	public void addMeal(Meal meal) {
+		menu.get("meals").add(meal);
 	}
 	public void removeMeal(Meal meal) {
 		ArrayList<MenuItem> meals = menu.get("meals");
 		meals.add(meal);
 		meals.remove(meal);
+	}
+	public Dish getDishItem(String name) {
+		
+		for(MenuItem dish:menu.get("starter")) {
+			if(dish.getName().equals(name)) {
+				return (Dish)dish;
+			}
+		}
+		for(MenuItem dish:menu.get("main_dish")) {
+			if(dish.getName().equals(name)) {
+				return (Dish)dish;
+			}
+		}
+		for(MenuItem dish:menu.get("dessert")) {
+			if(dish.getName().equals(name)) {
+				return (Dish)dish;
+			}
+		}
+		System.out.print("item non existant");
+		return null;
+	}
+	public Meal getMealItem(String name) {
+		for(MenuItem dish:menu.get("meals")) {
+			if(dish.getName().equals(name)) {
+				return (Meal)dish;
+			}
+		}
+		System.out.println("item non existant");
+		return null;
+	}
+	
+	public void ShowMeal(String name) {
+		Full_meal meal=(Full_meal) this.getMealItem(name);
+		if(meal.getItem1()!=null) {
+			System.out.println("Item 1: "+meal.getItem1().toString());
+			if(meal.getItem2()!=null) {
+				System.out.println("Item 2: "+meal.getItem2().toString());
+				if(meal.getItem3()!=null) {
+					System.out.println("Item 3: "+meal.getItem3().toString());
+				}
+			}
+		}
 	}
 
 
