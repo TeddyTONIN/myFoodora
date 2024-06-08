@@ -15,6 +15,7 @@ public class Customer extends User implements Observer {
 	private Map<String,Order> OrderHistory;
 	private ArrayList<FidelityCard> FidelityPlan;
 	
+	
 	public Customer(String username, String password, Coordinate address, String email) {
 		super(username,password);
 		this.address = address;

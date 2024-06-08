@@ -1109,7 +1109,85 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MbGSRBtxEe-T0IqDh7ccwA"/>
     </children>
     <element xmi:type="uml:Class" href="myFoodora.uml#_MbGSMBtxEe-T0IqDh7ccwA"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MbGSMhtxEe-T0IqDh7ccwA" x="3320" y="1780" width="242" height="177"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MbGSMhtxEe-T0IqDh7ccwA" x="3880" y="1460" width="242" height="177"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_T-8OwCWQEe-92bTKmZzsuw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_T_gPcCWQEe-92bTKmZzsuw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_T_gPcSWQEe-92bTKmZzsuw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_T_gPciWQEe-92bTKmZzsuw" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_T_g2gCWQEe-92bTKmZzsuw" type="Class_AttributeCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_T_g2gSWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_T_g2giWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_T_g2gyWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T_g2hCWQEe-92bTKmZzsuw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_T_rOkCWQEe-92bTKmZzsuw" type="Class_OperationCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_T_rOkSWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_T_rOkiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_T_rOkyWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T_rOlCWQEe-92bTKmZzsuw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_T_r1oCWQEe-92bTKmZzsuw" type="Class_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_T_r1oSWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_T_r1oiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_T_r1oyWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T_r1pCWQEe-92bTKmZzsuw"/>
+    </children>
+    <element xmi:type="uml:Class" href="myFoodora.uml#_T9jHoCWQEe-92bTKmZzsuw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T-8OwSWQEe-92bTKmZzsuw" x="3680" y="1820" width="160" height="140"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_afJzcCWQEe-92bTKmZzsuw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_afKagCWQEe-92bTKmZzsuw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_afKagSWQEe-92bTKmZzsuw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_afLBkCWQEe-92bTKmZzsuw" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_afLBkSWQEe-92bTKmZzsuw" type="Class_AttributeCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_afLBkiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_afLBkyWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_afLBlCWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afLBlSWQEe-92bTKmZzsuw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_afLooCWQEe-92bTKmZzsuw" type="Class_OperationCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_afLooSWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_afLooiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_afLooyWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afLopCWQEe-92bTKmZzsuw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_afLopSWQEe-92bTKmZzsuw" type="Class_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_afLopiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_afLopyWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_afLoqCWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afLoqSWQEe-92bTKmZzsuw"/>
+    </children>
+    <element xmi:type="uml:Class" href="myFoodora.uml#_afDFwCWQEe-92bTKmZzsuw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_afJzcSWQEe-92bTKmZzsuw" x="3920" y="1820" width="180" height="140"/>
+  </children>
+  <children xmi:type="notation:Shape" xmi:id="_d_JIYCWQEe-92bTKmZzsuw" type="Class_Shape">
+    <children xmi:type="notation:DecorationNode" xmi:id="_d_JvcCWQEe-92bTKmZzsuw" type="Class_NameLabel"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_d_JvcSWQEe-92bTKmZzsuw" type="Class_FloatingNameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_d_JvciWQEe-92bTKmZzsuw" y="15"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_d_JvcyWQEe-92bTKmZzsuw" type="Class_AttributeCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_d_JvdCWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_d_JvdSWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_d_JvdiWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d_JvdyWQEe-92bTKmZzsuw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_d_KWgCWQEe-92bTKmZzsuw" type="Class_OperationCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_d_KWgSWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_d_KWgiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_d_KWgyWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d_KWhCWQEe-92bTKmZzsuw"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_d_KWhSWQEe-92bTKmZzsuw" type="Class_NestedClassifierCompartment">
+      <styles xmi:type="notation:TitleStyle" xmi:id="_d_KWhiWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_d_KWhyWQEe-92bTKmZzsuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_d_KWiCWQEe-92bTKmZzsuw"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d_KWiSWQEe-92bTKmZzsuw"/>
+    </children>
+    <element xmi:type="uml:Class" href="myFoodora.uml#_d_GsICWQEe-92bTKmZzsuw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_d_JIYSWQEe-92bTKmZzsuw" x="4160" y="1820" width="160" height="140"/>
   </children>
   <styles xmi:type="notation:StringValueStyle" xmi:id="_RFtFcRT1Ee-eIOp6UBQ_-w" name="diagram_compatibility_version" stringValue="1.4.0"/>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_RFtFchT1Ee-eIOp6UBQ_-w"/>
@@ -1742,5 +1820,60 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_MsS3QhtuEe-T0IqDh7ccwA" points="[2560, 1840, -643984, -643984]$[2560, 2080, -643984, -643984]$[3160, 2080, -643984, -643984]$[3580, 2080, -643984, -643984]$[3580, 220, -643984, -643984]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MtGIgBtuEe-T0IqDh7ccwA" id="(0.6666666666666666,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_MtGIgRtuEe-T0IqDh7ccwA" id="(0.8333333333333334,1.0)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_pWHAoCWQEe-92bTKmZzsuw" type="Generalization_Edge" source="_T-8OwCWQEe-92bTKmZzsuw" target="_MbGSMRtxEe-T0IqDh7ccwA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_pWHnsCWQEe-92bTKmZzsuw" type="Generalization_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_pWHnsSWQEe-92bTKmZzsuw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_pWHAoSWQEe-92bTKmZzsuw"/>
+    <element xmi:type="uml:Generalization" href="myFoodora.uml#_pSnnwCWQEe-92bTKmZzsuw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_pWHAoiWQEe-92bTKmZzsuw" points="[3740, 1820, -643984, -643984]$[3940, 1636, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pb9J8CWQEe-92bTKmZzsuw" id="(0.375,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_pb9J8SWQEe-92bTKmZzsuw" id="(0.24793388429752067,0.9943502824858758)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_qoOv0CWQEe-92bTKmZzsuw" type="Generalization_Edge" source="_afJzcCWQEe-92bTKmZzsuw" target="_MbGSMRtxEe-T0IqDh7ccwA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_qoOv0yWQEe-92bTKmZzsuw" type="Generalization_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_qoOv1CWQEe-92bTKmZzsuw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_qoOv0SWQEe-92bTKmZzsuw"/>
+    <element xmi:type="uml:Generalization" href="myFoodora.uml#_qmVSYCWQEe-92bTKmZzsuw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_qoOv0iWQEe-92bTKmZzsuw" points="[4020, 1820, -643984, -643984]$[4020, 1636, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qsGjMCWQEe-92bTKmZzsuw" id="(0.5555555555555556,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_qsGjMSWQEe-92bTKmZzsuw" id="(0.5785123966942148,0.9943502824858758)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_roKi0CWQEe-92bTKmZzsuw" type="Generalization_Edge" source="_d_JIYCWQEe-92bTKmZzsuw" target="_MbGSMRtxEe-T0IqDh7ccwA">
+    <children xmi:type="notation:DecorationNode" xmi:id="_roKi0yWQEe-92bTKmZzsuw" type="Generalization_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_roKi1CWQEe-92bTKmZzsuw" y="40"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_roKi0SWQEe-92bTKmZzsuw"/>
+    <element xmi:type="uml:Generalization" href="myFoodora.uml#_rmegwCWQEe-92bTKmZzsuw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_roKi0iWQEe-92bTKmZzsuw" points="[4180, 1820, -643984, -643984]$[4080, 1636, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rsBIECWQEe-92bTKmZzsuw" id="(0.125,0.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rsBIESWQEe-92bTKmZzsuw" id="(0.8264462809917356,0.9943502824858758)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_vuUf4CWQEe-92bTKmZzsuw" type="Association_Edge" source="_hV0WkRT4Ee-eIOp6UBQ_-w" target="_T-8OwCWQEe-92bTKmZzsuw">
+    <children xmi:type="notation:DecorationNode" xmi:id="_vuUf4yWQEe-92bTKmZzsuw" type="Association_StereotypeLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vuUf5CWQEe-92bTKmZzsuw" y="-20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vuUf5SWQEe-92bTKmZzsuw" type="Association_NameLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vuUf5iWQEe-92bTKmZzsuw" y="20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vuUf5yWQEe-92bTKmZzsuw" type="Association_TargetRoleLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vuUf6CWQEe-92bTKmZzsuw" y="-20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vuUf6SWQEe-92bTKmZzsuw" type="Association_SourceRoleLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vuUf6iWQEe-92bTKmZzsuw" y="20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vuUf6yWQEe-92bTKmZzsuw" type="Association_SourceMultiplicityLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vuUf7CWQEe-92bTKmZzsuw" y="20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_vuVG8CWQEe-92bTKmZzsuw" type="Association_TargetMultiplicityLabel">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_vuVG8SWQEe-92bTKmZzsuw" y="-20"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_vuUf4SWQEe-92bTKmZzsuw"/>
+    <element xmi:type="uml:Association" href="myFoodora.uml#_vr6FECWQEe-92bTKmZzsuw"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_vuUf4iWQEe-92bTKmZzsuw" points="[2580, 1840, -643984, -643984]$[3680, 1840, -643984, -643984]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vy4PwCWQEe-92bTKmZzsuw" id="(0.7222222222222222,1.0)"/>
+    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_vy420CWQEe-92bTKmZzsuw" id="(0.0,0.14285714285714285)"/>
   </edges>
 </notation:Diagram>

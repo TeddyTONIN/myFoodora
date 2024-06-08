@@ -1,9 +1,16 @@
 package myFoodora.model;
 
-public class FidelityCard {
+public class FidelityCard  {
 	private Restaurant restaurant;
-	private double points = 0;
 	
+	private Customer customer;
+	
+	public Customer getCustomer() {
+		return customer;
+	}
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 	public FidelityCard(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
@@ -13,11 +20,11 @@ public class FidelityCard {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	public double getPoints() {
-		return points;
+
+	public void update() {
+		
 	}
-	public void setPoints(double points) {
-		this.points = points;
+	public double computeDiscount(double priceWithoutDiscount) {
+		return 0.0;
 	}
-	
 }

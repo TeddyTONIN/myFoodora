@@ -1,5 +1,6 @@
 package myFoodora.model;
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Map;
 import myFoodora.design.abstractFactory.OrderFactory;
@@ -8,6 +9,7 @@ public class Order extends OrderFactory {
 	
 	private Restaurant restaurant;
 	private double orderPrice;
+	private double restaurantPrice;
 	private ArrayList<MenuItem> itemsOrdered;
     private Customer customer;
     private boolean delivered = false;
@@ -18,7 +20,7 @@ public class Order extends OrderFactory {
 	private String orderName;
 	private Date date;
     
-    public Order(Restaurant restaurant, Customer customer) {
+	public Order(Restaurant restaurant, Customer customer) {
     	
     	this.restaurant = restaurant;
     	this.customer = customer;
@@ -29,6 +31,7 @@ public class Order extends OrderFactory {
     	this.orderName=orderName;
     	this.itemsOrdered=new ArrayList<MenuItem>();
     }
+
 
     public void addMenuItem(MenuItem menuItem) {
         itemsOrdered.add(menuItem);
@@ -48,15 +51,23 @@ public class Order extends OrderFactory {
 		this.restaurant = restaurant;
 	}
 	// fonctions à vérifier 
-	public double calculateorderPrice() {
+	
+	public double getPriceWithoutDiscount(){
 		double s=0;
 		for (MenuItem menuItem:itemsOrdered) {
-			s=s+menuItem.getPrice();
+				s+= menuItem.getPrice();
 		}
-		return s ;
+		return s;
 	}
+    public double getDiscountOnOrder(double priceWithoutDiscount) {
+    	
+    	FidelityCard card = this.getRestaurant().getCustomerFidelityPlans().get(customer);
+		return card.computeDiscount(priceWithoutDiscount);
+	}
+
 	public double getOrderPrice(){
-		return orderPrice;
+	
+		return this.getPriceWithoutDiscount()-this.getDiscountOnOrder(this.getPriceWithoutDiscount());
 	}
 	public void setOrderPrice(double price) {
 		this.orderPrice = price;
@@ -105,6 +116,8 @@ public class Order extends OrderFactory {
 	}
 
 	public double getTotalFee() {
+		
+		totalFee = this.getOrderPrice()+serviceFee;
 		return totalFee;
 	}
 	

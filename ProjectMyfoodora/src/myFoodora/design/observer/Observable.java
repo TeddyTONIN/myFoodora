@@ -2,7 +2,7 @@ package myFoodora.design.observer;
 
 public interface Observable {
 	
-	void notify(Observer observer);
-	void attach(Observer observer);
-	void dettach();
+	default void notify(Observer observer) {};
+	default void attach(Observer observer) {};
+	default void dettach() {};
 }

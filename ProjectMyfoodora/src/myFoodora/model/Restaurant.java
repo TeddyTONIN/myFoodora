@@ -9,23 +9,23 @@ public class Restaurant extends User {
 	private Coordinate location;
 	private  HashMap<String, ArrayList<MenuItem>> menu = new HashMap<>();
 	private Meal meal_of_the_week;
+    private HashMap<Customer,FidelityCard> customerFidelityPlans = new HashMap<Customer,FidelityCard>();
+    
 
 	private  double genericDiscountFactor ;
 
 	private double specialDiscountFactor;
+	private double p=0.3;// probability of wining the lottery
 
-	
-	public Restaurant(String ID, String username, String password, String name, Coordinate location) {
-		super(username,password);
-		this.name = name;
-		this.location = location;
-		// Initialize the menu with empty ArrayLists for each category
-		menu.put("starter", new ArrayList<MenuItem>());
-        menu.put("main_dish", new ArrayList<MenuItem>());
-        menu.put("dessert", new ArrayList<MenuItem>());
-        menu.put("meals",new ArrayList<MenuItem>());
+
+	public double getP() {
+		return p;
 	}
-	
+
+	public void setP(double p) {
+		this.p = p;
+	}
+
 	//rajout d'un constructeur ci-dessous pour qu'il match avec les arguments de l'interface
 	public Restaurant(String name,Coordinate location,String username,String password) {
 		super(username,password);
@@ -102,6 +102,11 @@ public class Restaurant extends User {
 		this.specialDiscountFactor = specialDiscountFactor;
 	}
 	
+	
+	public HashMap<Customer, FidelityCard> getCustomerFidelityPlans() {
+		return customerFidelityPlans;
+	}
+
 	public void addDish(String name, String category, String type,double price) {
 		DishFactory dishFactory = new DishFactory();
 		Dish dish = dishFactory.createDish(name,category,type,price);
@@ -135,6 +140,7 @@ public class Restaurant extends User {
 		meals.add(meal);
 		meals.remove(meal);
 	}
+
 
 	@Override
 	public String toString() {

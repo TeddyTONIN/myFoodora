@@ -69,6 +69,10 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_u0C4UBtxEe-T0IqDh7ccwA" name="orderHistory" aggregation="composite">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EEList"/>
       </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_vskMYCWQEe-92bTKmZzsuw" name="basicfidelitycard" type="_T9jHoCWQEe-92bTKmZzsuw" association="_vr6FECWQEe-92bTKmZzsuw">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_vskMYSWQEe-92bTKmZzsuw"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_vskzcCWQEe-92bTKmZzsuw" value="1"/>
+      </ownedAttribute>
       <ownedOperation xmi:type="uml:Operation" xmi:id="_Fb8EgBttEe-T0IqDh7ccwA" name="placeOrder" visibility="package">
         <ownedParameter xmi:type="uml:Parameter" xmi:id="_jJKiYBttEe-T0IqDh7ccwA" name="restaurant" type="_mBn-YBT4Ee-eIOp6UBQ_-w"/>
       </ownedOperation>
@@ -321,6 +325,21 @@
       <ownedAttribute xmi:type="uml:Property" xmi:id="_Z8AScBtxEe-T0IqDh7ccwA" name="points" visibility="package">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EDouble"/>
       </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_T9jHoCWQEe-92bTKmZzsuw" name="BasicFidelityCard">
+      <generalization xmi:type="uml:Generalization" xmi:id="_pSnnwCWQEe-92bTKmZzsuw" general="_MbGSMBtxEe-T0IqDh7ccwA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_afDFwCWQEe-92bTKmZzsuw" name="PointFidelityCard">
+      <generalization xmi:type="uml:Generalization" xmi:id="_qmVSYCWQEe-92bTKmZzsuw" general="_MbGSMBtxEe-T0IqDh7ccwA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_d_GsICWQEe-92bTKmZzsuw" name="LotteryFidelityCard">
+      <generalization xmi:type="uml:Generalization" xmi:id="_rmegwCWQEe-92bTKmZzsuw" general="_MbGSMBtxEe-T0IqDh7ccwA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_vr6FECWQEe-92bTKmZzsuw" memberEnd="_vskMYCWQEe-92bTKmZzsuw _vskzcSWQEe-92bTKmZzsuw">
+      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vsVi4CWQEe-92bTKmZzsuw" source="org.eclipse.papyrus">
+        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vses0CWQEe-92bTKmZzsuw" key="nature" value="UML_Nature"/>
+      </eAnnotations>
+      <ownedEnd xmi:type="uml:Property" xmi:id="_vskzcSWQEe-92bTKmZzsuw" name="customer" type="_hV0WkBT4Ee-eIOp6UBQ_-w" association="_vr6FECWQEe-92bTKmZzsuw"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_wn50IBhnEe-_N4mTYBDA-Q">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_wn_TsBhnEe-_N4mTYBDA-Q" source="http://www.eclipse.org/uml2/2.0.0/UML">

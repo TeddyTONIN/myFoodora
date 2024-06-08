@@ -1,15 +1,17 @@
 package myFoodora.model;
 
 import java.util.ArrayList;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import myFoodora.Policy.DeliveryPolicy;
 import myFoodora.Policy.ShippedOrderSortingPolicy;
 import myFoodora.Policy.TargetProfitPolicy;
+import myFoodora.design.observer.*;
 
 
-public class MyFoodoraSystem {
+public class MyFoodoraSystem{
 	private static MyFoodoraSystem instance= new MyFoodoraSystem();
 	private Map<String,Restaurant> restaurants =new HashMap<>();
 	private Map<String,Courrier> courriers =new HashMap<>();
@@ -24,6 +26,7 @@ public class MyFoodoraSystem {
 	private DeliveryPolicy deliveryPolicy=new DeliveryPolicy.Fair_occupationDelivery();
 	private ShippedOrderSortingPolicy shippedOrderSortingPolicy=new ShippedOrderSortingPolicy.SortedOrderedItem_à_la_carte();
 	private TargetProfitPolicy targetProfitPolicy=new TargetProfitPolicy.TargetProfit_servicefee();
+	
 	
 	private double systemProfit=0;
 			
@@ -98,6 +101,12 @@ public class MyFoodoraSystem {
 			System.out.println(clients.get(customer).toString());	
 		}
 	}
+	
+	public void addOrdertoHistory(Order order) {
+		this.ordersHistory.add(order);
+
+	}
+	
 	
 	
 }
