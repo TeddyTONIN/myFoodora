@@ -27,8 +27,8 @@ public class Restaurant extends User {
 	}
 	
 	//rajout d'un constructeur ci-dessous pour qu'il match avec les arguments de l'interface
-	public Restaurant(String name,Coordinate location,String password) {
-		super(name,password);
+	public Restaurant(String name,Coordinate location,String username,String password) {
+		super(username,password);
 		this.name = name;
 		this.location = location;
 		menu.put("starter", new ArrayList<MenuItem>());

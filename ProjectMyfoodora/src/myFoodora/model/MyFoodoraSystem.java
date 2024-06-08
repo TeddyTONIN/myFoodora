@@ -26,7 +26,7 @@ public class MyFoodoraSystem {
 	private TargetProfitPolicy targetProfitPolicy=new TargetProfitPolicy.TargetProfit_servicefee();
 	
 	private double systemProfit=0;
-	
+			
 	public static MyFoodoraSystem getInstance() {
 		return instance;
 	}
@@ -44,6 +44,14 @@ public class MyFoodoraSystem {
 	
 	public double getSystemProfit() {
 		return systemProfit;
+	}
+
+	
+	public Map<String, Manager> getManagersList() {
+		return managers;
+	}
+	public Manager getManager(String name) {
+		return managers.get(name);
 	}
 
 	public Map<String, Restaurant> getRestaurantsList() {
@@ -87,8 +95,7 @@ public class MyFoodoraSystem {
 	
 	public void showCustomer() {
 		for (String customer :clients.keySet()) {
-			System.out.println(clients.get(customer).toString());
-			
+			System.out.println(clients.get(customer).toString());	
 		}
 	}
 	

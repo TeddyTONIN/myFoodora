@@ -19,7 +19,7 @@ public class UserFactory extends AbstractFactory{
 			double x=Double.parseDouble(coordinate[0]);
 			double y=Double.parseDouble(coordinate[1]);
 			Coordinate location=new Coordinate(x, y);
-			return new Restaurant(para.get(0),location,para.get(2));
+			return new Restaurant(para.get(0),location,para.get(2),para.get(3));
 		}
 		if(userType.equalsIgnoreCase("customer")) {
 			String [] coordinate=para.get(3).split(",");

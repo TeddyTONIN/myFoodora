@@ -15,15 +15,15 @@ public class UserInterface {
 	static OrderFactory oF= new OrderFactory();
 	
 	public static void registerRestaurant(ArrayList<String> para) {
-		MyFoodoraSystem.getInstance().getRestaurantsList().put(para.get(0), (Restaurant) uF.createUser("restaurant",para));
+		MyFoodoraSystem.getInstance().getRestaurantsList().put(para.get(2), (Restaurant) uF.createUser("restaurant",para));
 	}
 	
 	public static void registerCustomer(ArrayList<String> para) {
-		MyFoodoraSystem.getInstance().getClientsList().put(para.get(0), (Customer) uF.createUser("Customer",para));
+		MyFoodoraSystem.getInstance().getClientsList().put(para.get(2), (Customer) uF.createUser("Customer",para));
 	}
 	
 	public static void registerCourrier(ArrayList<String> para) {
-		MyFoodoraSystem.getInstance().getCourriersList().put(para.get(0), (Courrier) uF.createUser("courrier",para));		
+		MyFoodoraSystem.getInstance().getCourriersList().put(para.get(2), (Courrier) uF.createUser("courrier",para));		
 	}
 	
 	public static void addDishRestaurantMenu(String RestaurantName,ArrayList<String> para) {
@@ -145,6 +145,54 @@ public class UserInterface {
 	public static void showtotalProfit() {
 		double profit =MyFoodoraSystem.getInstance().getSystemProfit();
 		System.out.println("The total profit of system is: "+profit+"€");
-		
+	}
+	
+	public static User login(ArrayList<String> para) {
+		if (MyFoodoraSystem.getInstance().getRestaurantsList().containsKey(para.get(0))) {
+			Restaurant restaurant=MyFoodoraSystem.getInstance().getRestaurant(para.get(0));
+			if (restaurant.getPassword().equals(para.get(1))) {
+				System.out.println("connexion réussie restaurant réussie");
+				return(restaurant);
+			}
+			else {
+				System.out.println("Le mot de pass entrée est incorrect");
+				return null;
+			}
+		}
+		else if (MyFoodoraSystem.getInstance().getClientsList().containsKey(para.get(0))) {
+			Customer client=MyFoodoraSystem.getInstance().getClient(para.get(0));
+			if (client.getPassword().equals(para.get(1))) {
+				System.out.println("connexion customer réussie ");
+				return(client);
+			}
+			else {
+				System.out.println("Le mot de pass entrée est incorrect");
+				return null;
+			}
+		}
+		else if (MyFoodoraSystem.getInstance().getManagersList().containsKey(para.get(0))) {
+			Manager manager=MyFoodoraSystem.getInstance().getManager(para.get(0));
+			if (manager.getPassword().equals(para.get(1))) {
+				System.out.println("connexion manager réussie");
+				return(manager);
+			}
+			else {
+				System.out.println("Le mot de pass entrée est incorrect");
+				return null;
+			}
+		}
+		else if (MyFoodoraSystem.getInstance().getCourriersList().containsKey(para.get(0))) {
+			Courrier courier=MyFoodoraSystem.getInstance().getCourrier(para.get(0));
+			if (courier.getPassword().equals(para.get(1))) {
+				System.out.println("connexion  courrier réussie");
+				return(courier);
+			}
+			else {
+				System.out.println("Le mot de passe entrée est incorrect");
+				return null;
+			}
+		}
+		System.out.println("utiliseur non reconnue par le système");
+		return null;
 	}
 }

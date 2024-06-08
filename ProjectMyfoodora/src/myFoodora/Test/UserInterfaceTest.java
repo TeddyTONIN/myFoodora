@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import myFoodora.model.Coordinate;
+import myFoodora.model.Courrier;
 import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.DishCategory;
@@ -26,6 +28,7 @@ public class UserInterfaceTest {
 		ArrayList<String> paraRestau=new ArrayList<String>();
 		paraRestau.add("TourDargent");
 		paraRestau.add("45.1,66.2");
+		paraRestau.add("TourDargent");
 		paraRestau.add("12345678");	
 		UserInterface.registerRestaurant(paraRestau);
 		
@@ -33,7 +36,7 @@ public class UserInterfaceTest {
 		ArrayList<String> paraCustomer=new ArrayList<String>();
 		paraCustomer.add("Jonathan");
 		paraCustomer.add("olivers");
-		paraCustomer.add("Jonalivers");
+		paraCustomer.add("JonaliversCustomer");
 		paraCustomer.add("45,60");
 		paraCustomer.add("test");
 		UserInterface.registerCustomer(paraCustomer);		
@@ -56,7 +59,7 @@ public class UserInterfaceTest {
 		UserInterface.addDishRestaurantMenu("TourDargent",paraDish);
 		
 		//création d'un order vide
-		Order orderVide= new Order(MyFoodoraSystem.getInstance().getClient("Jonathan"),MyFoodoraSystem.getInstance().getRestaurant("TourDargent"),"vide");
+		Order orderVide= new Order(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer"),MyFoodoraSystem.getInstance().getRestaurant("TourDargent"),"vide");
 		
 	}
 	
@@ -68,12 +71,14 @@ public class UserInterfaceTest {
 	
 	@Test
 	public void testRegisterCustomer() {
-		assertTrue(MyFoodoraSystem.getInstance().getClient("Jonathan").getUsername()=="Jonalivers");
+		assertTrue(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getFirstName()=="Jonathan");
 	}
 	
 	@Test
 	public void testRegisterCourrier() {
-		assertTrue(MyFoodoraSystem.getInstance().getCourrier("Jonathan").isOn_duty()==true);
+		Courrier courier=MyFoodoraSystem.getInstance().getCourrier("Jonalivers");
+		Coordinate coordinate=courier.getPosition();
+		assertTrue(coordinate.toString().equals("Coordinate [x=45.0, y=60.0]"));
 	}
 	
 	@Test
@@ -86,7 +91,7 @@ public class UserInterfaceTest {
 	
 	@Test
 	public void testCreateOrder() {
-		Customer customer=MyFoodoraSystem.getInstance().getClient("Jonathan");
+		Customer customer=MyFoodoraSystem.getInstance().getClient("JonaliversCustomer");
 		Restaurant restaurant=MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
 		Order order= new Order(customer,restaurant,"test");
 		ArrayList<String> paraOrder=new ArrayList<String>();
@@ -107,16 +112,16 @@ public class UserInterfaceTest {
 		ArrayList<String> orderVide=new ArrayList<String>();
 		orderVide.add("TourDargent");
 		orderVide.add("vide");
-		UserInterface.createOrder(MyFoodoraSystem.getInstance().getClient("Jonathan"), orderVide);
+		UserInterface.createOrder(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer"), orderVide);
 		
 		//ajout d'un item dans order
 		ArrayList<String> orderAddItem=new ArrayList<String>();
 		orderAddItem.add("vide");
 		orderAddItem.add("pouletDg");
-		UserInterface.addItem2Order(MyFoodoraSystem.getInstance().getClient("Jonathan"), orderAddItem);
+		UserInterface.addItem2Order(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer"), orderAddItem);
 		
 		//test
-		assertTrue(MyFoodoraSystem.getInstance().getClient("Jonathan").getOrderHistory().get("vide").getItemsOrdered().contains(dish));
+		assertTrue(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().get("vide").getItemsOrdered().contains(dish));
 	}
 	
 }
