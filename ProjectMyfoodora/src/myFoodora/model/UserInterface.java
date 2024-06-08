@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import myFoodora.Policy.DeliveryPolicy;
 import myFoodora.Policy.TargetProfitPolicy;
 import myFoodora.design.abstractFactory.DishFactory;
+import myFoodora.design.abstractFactory.MealFactory;
 import myFoodora.design.abstractFactory.OrderFactory;
 import myFoodora.design.abstractFactory.UserFactory;
 
@@ -16,6 +17,7 @@ public class UserInterface {
 	static UserFactory uF= new UserFactory();
 	static DishFactory dF = new DishFactory();
 	static OrderFactory oF= new OrderFactory();
+	static MealFactory mF=new MealFactory();
 	
 	public static void registerRestaurant(ArrayList<String> para) {
 		MyFoodoraSystem.getInstance().getRestaurantsList().put(para.get(2), (Restaurant) uF.createUser("restaurant",para));
@@ -154,11 +156,11 @@ public class UserInterface {
 		if (MyFoodoraSystem.getInstance().getRestaurantsList().containsKey(para.get(0))) {
 			Restaurant restaurant=MyFoodoraSystem.getInstance().getRestaurant(para.get(0));
 			if (restaurant.getPassword().equals(para.get(1))) {
-				System.out.println("connexion réussie restaurant réussie");
+				System.out.println("connexion restaurant réussie");
 				return(restaurant);
 			}
 			else {
-				System.out.println("Le mot de pass entrée est incorrect");
+				System.out.println("Le mot de passe entrée est incorrect");
 				return null;
 			}
 		}
@@ -169,7 +171,7 @@ public class UserInterface {
 				return(client);
 			}
 			else {
-				System.out.println("Le mot de pass entrée est incorrect");
+				System.out.println("Le mot de passe entrée est incorrect");
 				return null;
 			}
 		}
@@ -180,7 +182,7 @@ public class UserInterface {
 				return(manager);
 			}
 			else {
-				System.out.println("Le mot de pass entrée est incorrect");
+				System.out.println("Le mot de passe entrée est incorrect");
 				return null;
 			}
 		}
@@ -199,8 +201,40 @@ public class UserInterface {
 		return null;
 	}
 	
+	public static void createMeal(Restaurant restaurant,ArrayList<String> para) {
+		Full_meal meal=mF.createMeal(para.get(0));
+		ArrayList<MenuItem> meals=restaurant.getMenu().get("meals");
+		meals.add(meal);
+	}
+	
+	public static void addDish2Meal(Restaurant restaurant,ArrayList<String> para) {
+		Meal meal=(Full_meal)restaurant.getMealItem(para.get(1));
+		Dish dish=restaurant.getDishItem(para.get(0));
+		if (meal.getItem1()==null) {
+			meal.setItem1(dish);	
+			}
+		else if (meal.getItem2()==null) {
+			meal.setItem2(dish);	
+			}
+		else {
+			}
+		}
+	public static void showMeal(Restaurant restaurant,ArrayList<String> para) {
+		restaurant.ShowMeal(para.get(0));
+	}
+	
+	public static void saveMeal(Restaurant restaurant,ArrayList<String> para){
+		System.out.println("meal sauvegardé");
+	}
+	
+	public static void setSpecialOffer(Restaurant restaurant,ArrayList<String> para) {
+		restaurant.setMeal_of_the_week(restaurant.getMealItem(para.get(0)));
+	}
+	public static void removeFromSpecialOffer(Restaurant restaurant,ArrayList<String> para) {
+		restaurant.setMeal_of_the_week(null);
+	}
+	
 	public static void processAction(String line) {
-		
 		
 		}
 

@@ -108,9 +108,32 @@ public class app {
 							break;
 						case "addDishRestaurantMenu":
 							UserInterface.addDishRestaurantMenu(restaurant.getName(), parameters);
+							System.out.println("la création du dish "+parameters.get(0)+" est un succès");
+							break;
+						case "createMeal":
+							UserInterface.createMeal(restaurant, parameters);
+							System.out.println("la création du meal "+parameters.get(0)+" est un succès");
+							break;
+						case "addDish2Meal":
+							UserInterface.addDish2Meal(restaurant, parameters);
+							System.out.println("l'ajout du dish "+parameters.get(0)+" dans le meal "+ parameters.get(1)+" est un succès");
+							break;
+						case "showMeal":
+							UserInterface.showMeal(restaurant, parameters);
+							System.out.println("Affichage du meal "+parameters.get(0)+":");
+							break;
+						case "saveMeal":
+							UserInterface.saveMeal(restaurant, parameters);
+							System.out.println("Sauvegarde du meal "+parameters.get(0)+"réussie");
+							break;
+						case "setSpecialOffer":
+							UserInterface.setSpecialOffer(restaurant, parameters);
+							break;
+						case "removeFromSpecialOffer":
+							UserInterface.removeFromSpecialOffer(restaurant, parameters);
 							break;
 						default:
-							System.out.println("commande courrier non reconnue");
+							System.out.println("commande restaurant non reconnue");
 							break;
 								
 						}

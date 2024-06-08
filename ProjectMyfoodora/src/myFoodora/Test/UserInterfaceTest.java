@@ -2,6 +2,7 @@ package myFoodora.Test;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -14,7 +15,10 @@ import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.DishCategory;
 import myFoodora.model.FoodCategory;
+import myFoodora.model.Full_meal;
 import myFoodora.model.Manager;
+import myFoodora.model.Meal;
+import myFoodora.model.MenuItem;
 import myFoodora.model.MyFoodoraSystem;
 import myFoodora.model.Order;
 import myFoodora.model.Restaurant;
@@ -66,6 +70,14 @@ public class UserInterfaceTest {
 		//création d'un order vide
 		Order orderVide= new Order(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer"),MyFoodoraSystem.getInstance().getRestaurant("TourDargent"),"vide");
 		
+		//Création d'un meal vide 
+		Restaurant restaurant =MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
+		Full_meal meal=new Full_meal("SaveurDAfrique");
+		restaurant.addMeal(meal);
+		
+		//ajout d'un dish a un mealVide
+		Dish dish1=new Dish("poissonR", DishCategory.main_dish, FoodCategory.standard, 12);
+		meal.setItem1(dish1);
 	}
 	
 	
@@ -129,6 +141,20 @@ public class UserInterfaceTest {
 		assertTrue(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().get("vide").getItemsOrdered().contains(dish));
 	}
 	
+	@Test
+	public void testCreateMeal() {
+		Restaurant restaurant =MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
+		ArrayList<String> mealName=new ArrayList<String>();
+		mealName.add("riz");
+		UserInterface.createMeal(restaurant,mealName);
+		assertNotNull(restaurant.getMealItem("riz"));;
+	}
 	
+	@Test
+	public void testAddDish2Meal() {
+		Restaurant restaurant =MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
+		Meal meal=restaurant.getMealItem("SaveurDAfrique");
+		assertNotNull(restaurant.getMealItem("SaveurDAfrique"));
+	}
 	
 }

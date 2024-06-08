@@ -12,6 +12,9 @@ public class Full_meal extends Meal {
 			super.type =  item3.getType();		
 		}
 	}
+	public Full_meal(String name) {
+		super(name);
+	}
 
 
 	public Dish getItem3() {
@@ -21,6 +24,13 @@ public class Full_meal extends Meal {
 
 	public void setItem3(Dish item3) {
 		this.item3 = item3;
+		if (item3.getType()!=type) {
+			type=FoodCategory.standard;
+		}
+	}
+	@Override
+	public String toString() {
+		return super.toString()+ "item3=" + item3 + ", type=" + type + "]";
 	}
 	
 	
