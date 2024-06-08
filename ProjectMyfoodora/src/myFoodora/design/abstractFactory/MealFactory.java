@@ -1,19 +1,14 @@
 package myFoodora.design.abstractFactory;
 
-import myFoodora.model.Customer;
+
 import myFoodora.model.Dish;
 import myFoodora.model.Full_meal;
 import myFoodora.model.Meal;
-import myFoodora.model.Order;
-import myFoodora.model.Restaurant;
 
-public class MealFactory extends AbstractFactory {
+
+public class MealFactory implements AbstractFactory {
 	
 
-	public Order createOrder(Restaurant restaurant,Customer customer){
-		return null;
-	}
-	
     public Meal createMeal(String name, Dish item1, Dish item2, Dish item3) {
         if (item3 == null) {
             // If item3 is not provided, create a regular Meal
@@ -24,9 +19,6 @@ public class MealFactory extends AbstractFactory {
             // If item3 is provided, create a Full_meal
             return new Full_meal(name, item1, item2, item3);
         }
-    }
-    public Dish createDish(String name, String category, String type,double price)  {
-    	return null;
     }
 	
 
