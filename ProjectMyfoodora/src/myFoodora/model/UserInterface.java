@@ -1,6 +1,9 @@
 package myFoodora.model;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import myFoodora.Policy.DeliveryPolicy;
@@ -117,7 +120,7 @@ public class UserInterface {
 		courier.setOn_duty(false);
 	}
 	
-	public static void setDeliveryPolicy(Manager manager,ArrayList<String> para) {
+	public static void setDeliveryPolicy(ArrayList<String> para) {
 		if(para.get(0).equalsIgnoreCase("FastestDelivery"))
 			MyFoodoraSystem.getInstance().setDeliveryPolicy(new DeliveryPolicy.FastestDelivery());
 		else if (para.get(0).equalsIgnoreCase("Fair_occupationDelivery"))
@@ -125,7 +128,7 @@ public class UserInterface {
 		else System.out.println("La policie n'a pas été reconnu. \n veuillez entrer une policie existante");
 	}
 	
-	public static void setProfitPolicy(Manager manager,ArrayList<String> para) {
+	public static void setProfitPolicy(ArrayList<String> para) {
 		if(para.get(0).equalsIgnoreCase("TargetProfit_servicefee")) 
 			MyFoodoraSystem.getInstance().setTargetProfitPolicy(new TargetProfitPolicy.TargetProfit_servicefee());
 		else if(para.get(0).equalsIgnoreCase("TargetProfit_MarkupFee")) 
@@ -195,4 +198,11 @@ public class UserInterface {
 		System.out.println("utiliseur non reconnue par le système");
 		return null;
 	}
+	
+	public static void processAction(String line) {
+		
+		
+		}
+
 }
+

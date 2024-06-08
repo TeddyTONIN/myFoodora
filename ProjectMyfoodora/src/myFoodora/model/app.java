@@ -1,10 +1,14 @@
 package myFoodora.model;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 public class app {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException,IOException {
 		// TODO Auto-generated method stub
 		
 		Manager ceo=new Manager("ceo","123456789","Teddy","Olivers");
@@ -26,6 +30,19 @@ public class app {
 				}
 			}
 			switch(command) {
+			case "runtest":
+				String file =parameters.get(0);
+				FileReader fr=new FileReader(file);
+				BufferedReader reader=new BufferedReader(fr);
+				String lineFile="";
+				while ((lineFile=reader.readLine())!=null) {
+					 UserInterface.processAction(lineFile);
+				}
+				fr.close();
+			case "help":
+				System.out.println("Le système contient les commandes suivantes:");
+				System.out.println(Help.getHelp());
+				break;
 			case "exit":
 				System.out.println("Fermeture de l'application réussit !");
 				scanner.close();
@@ -33,11 +50,14 @@ public class app {
 			default:
 				System.out.println("Commande non reconnue");
 				break;
+				
+			//Partie de code dédiée à la connexion des utilisateurs et leurs fonctionnement	
 			case "login" :
 				User user=UserInterface.login(parameters);
 				if (user==null) {
 					break;
 					}
+				
 				if (user instanceof Courrier) {
 					user=(Courrier)user;
 					while(!command.equals("logout")) {
@@ -46,14 +66,15 @@ public class app {
 						listMots= line.split(" ");
 						command=listMots[0];
 						parameters=new ArrayList<String>();
-						
 						if (listMots.length>=2){
 							for (int i=1 ;i<listMots.length; i++) {
 								parameters.add(listMots[i]);
 							}
 						}
-						
 						switch(command) {
+						case "logout":
+							System.out.println("Déconnexion réussie");
+							break;
 						case "onDuty":
 							UserInterface.onDuty((Courrier)user, parameters);
 							System.out.println("changement réussie");
@@ -63,11 +84,72 @@ public class app {
 							System.out.println("changement réussie");
 							break;
 						default :
-							UserInterface.onDuty((Courrier)user, parameters);
 							System.out.println("commande courrier non reconnue");
+							break;
 						}
 					}
 				}
+				else if (user instanceof Restaurant) {
+					Restaurant restaurant=(Restaurant)user;
+					while(!command.equals("logout")) {
+						System.out.println("Entrez une commande restaurant");
+						line =scanner.nextLine();
+						listMots= line.split(" ");
+						command=listMots[0];
+						parameters=new ArrayList<String>();
+						if (listMots.length>=2){
+							for (int i=1 ;i<listMots.length; i++) {
+								parameters.add(listMots[i]);
+							}
+						}
+						switch(command) {
+						case "logout":
+							System.out.println("Déconnexion réussie");
+							break;
+						case "addDishRestaurantMenu":
+							UserInterface.addDishRestaurantMenu(restaurant.getName(), parameters);
+							break;
+						default:
+							System.out.println("commande courrier non reconnue");
+							break;
+								
+						}
+					}
+					
+				}
+				
+				else if (user instanceof Customer) {
+					Customer customer=(Customer)user;
+					while(!command.equals("logout")) {
+						System.out.println("Entrez une commande Customer");
+						line =scanner.nextLine();
+						listMots= line.split(" ");
+						command=listMots[0];
+						parameters=new ArrayList<String>();
+						if (listMots.length>=2){
+							for (int i=1 ;i<listMots.length; i++) {
+								parameters.add(listMots[i]);
+							}
+						}
+						switch(command) {
+						case "logout":
+							System.out.println("Déconnexion réussie");
+							break;
+						case "createOrder":
+							UserInterface.createOrder(customer, parameters);
+							break;
+						case "addItem2Order":
+							UserInterface.addItem2Order(customer, parameters);
+							break;
+						default:
+							System.out.println("commande courrier non reconnue");
+							break;
+								
+						}
+					}
+					
+				}
+				
 				else if (user instanceof Manager) {
 					user=(Manager)user;
 					while(!command.equals("logout")) {
@@ -82,7 +164,6 @@ public class app {
 								parameters.add(listMots[i]);
 							}
 						}
-						
 						switch(command) {
 						case "logout":
 							System.out.println("Déconnexion réussie");
@@ -98,6 +179,20 @@ public class app {
 						case "registerCourrier":
 							UserInterface.registerCourrier(parameters);
 							break;
+						case "setDeliveryPolicy":
+							UserInterface.setDeliveryPolicy(parameters);
+							break;
+						case "setProfitPolicy":
+							UserInterface.setProfitPolicy(parameters);
+							break;
+						case "showMenuItem":
+							UserInterface.showMenuItem(parameters);
+							break;
+						case "showCustomers":
+							UserInterface.showCustomers();
+							break;
+						case "showtotalProfit":
+							UserInterface.showtotalProfit();
 						}
 					}	
 				}

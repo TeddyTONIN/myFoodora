@@ -14,6 +14,7 @@ import myFoodora.model.Customer;
 import myFoodora.model.Dish;
 import myFoodora.model.DishCategory;
 import myFoodora.model.FoodCategory;
+import myFoodora.model.Manager;
 import myFoodora.model.MyFoodoraSystem;
 import myFoodora.model.Order;
 import myFoodora.model.Restaurant;
@@ -24,6 +25,10 @@ public class UserInterfaceTest {
 	
 	@BeforeClass
 	public static void initialisation() {
+		//Création du manager initial du système
+		Manager ceo=new Manager("ceo","123456789","Teddy","Olivers");
+		MyFoodoraSystem.getInstance().getManagersList().put("ceo", ceo);
+		
 		//création d'un restaurant
 		ArrayList<String> paraRestau=new ArrayList<String>();
 		paraRestau.add("TourDargent");
@@ -123,5 +128,7 @@ public class UserInterfaceTest {
 		//test
 		assertTrue(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().get("vide").getItemsOrdered().contains(dish));
 	}
+	
+	
 	
 }
