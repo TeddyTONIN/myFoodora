@@ -20,6 +20,4 @@ public class FidelityCard {
 		this.points = points;
 	}
 	
-	
-	
 }
