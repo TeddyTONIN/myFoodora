@@ -25,6 +25,8 @@ public class MyFoodoraSystem {
 	private ShippedOrderSortingPolicy shippedOrderSortingPolicy=new ShippedOrderSortingPolicy.SortedOrderedItem_à_la_carte();
 	private TargetProfitPolicy targetProfitPolicy=new TargetProfitPolicy.TargetProfit_servicefee();
 	
+	private double systemProfit=0;
+	
 	public static MyFoodoraSystem getInstance() {
 		return instance;
 	}
@@ -39,11 +41,11 @@ public class MyFoodoraSystem {
 		return S;	
 	}
 	
-	public double systemProfit() {
-		double S=0;
-		for (Order order:ordersHistory) {S=+this.profitForOneOrder(order);}
-		return S;
+	
+	public double getSystemProfit() {
+		return systemProfit;
 	}
+
 	public Map<String, Restaurant> getRestaurantsList() {
 		return restaurants;
 	}
@@ -70,5 +72,25 @@ public class MyFoodoraSystem {
 	public ArrayList<Order> getOrdersHistory() {
 		return ordersHistory;
 	}
-		
+
+	public void setDeliveryPolicy(DeliveryPolicy deliveryPolicy) {
+		this.deliveryPolicy = deliveryPolicy;
+	}
+
+	public void setShippedOrderSortingPolicy(ShippedOrderSortingPolicy shippedOrderSortingPolicy) {
+		this.shippedOrderSortingPolicy = shippedOrderSortingPolicy;
+	}
+
+	public void setTargetProfitPolicy(TargetProfitPolicy targetProfitPolicy) {
+		this.targetProfitPolicy = targetProfitPolicy;
+	}
+	
+	public void showCustomer() {
+		for (String customer :clients.keySet()) {
+			System.out.println(clients.get(customer).toString());
+			
+		}
+	}
+	
+	
 }

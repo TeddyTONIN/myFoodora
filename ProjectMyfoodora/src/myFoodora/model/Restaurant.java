@@ -141,5 +141,34 @@ public class Restaurant extends User {
 		return "Restaurant [name=" + name + ", location=" + location + "]";
 	}
 	
-	
+	public void showMenuItem() {
+		if (getMeal_of_the_week()!=null) {
+		System.out.println("The meal of the week is: \n ");
+		System.out.println(meal_of_the_week);
+		}
+		if (menu.get("starter")!=null) {
+			System.out.println("The starter are : \n ");
+			for (MenuItem menuItem : menu.get("starter")) {
+				System.out.println(menuItem);
+			}
+		}
+		if (menu.get("main_dish")!=null) {
+			System.out.println("The main_dish are : \n ");
+			for (MenuItem menuItem : menu.get("main_dish")) {
+				System.out.println(menuItem);
+			}
+		}
+		if (menu.get("dessert")!=null) {
+			System.out.println("The main_dish are : \n ");
+			for (MenuItem menuItem : menu.get("dessert")) {
+				System.out.println(menuItem);
+			}
+		}
+		if (menu.get("meals")!=null) {
+			System.out.println("The main_dish are : \n ");
+			for (MenuItem menuItem : menu.get("meals")) {
+				System.out.println(menuItem);
+			}
+		}
+	}
 }

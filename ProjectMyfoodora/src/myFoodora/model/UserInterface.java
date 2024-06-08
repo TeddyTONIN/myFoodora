@@ -3,6 +3,8 @@ package myFoodora.model;
 
 import java.util.ArrayList;
 
+import myFoodora.Policy.DeliveryPolicy;
+import myFoodora.Policy.TargetProfitPolicy;
 import myFoodora.design.abstractFactory.DishFactory;
 import myFoodora.design.abstractFactory.OrderFactory;
 import myFoodora.design.abstractFactory.UserFactory;
@@ -94,5 +96,55 @@ public class UserInterface {
 		}
 		if (mealFound==false)System.out.println("le repas commandé n'existe pas dans ce restaurant.\n Veuillez entrez un repas qui existe");
 
+	}
+	
+	public static void endOrder(Customer customer,ArrayList<String> para) {
+		Order order=customer.getOrderHistory().get(para.get(0));
+		String [] datepara=para.get(1).split("/");
+		int day=Integer.parseInt(datepara[0]);
+		int month=Integer.parseInt(datepara[0]);
+		int year=Integer.parseInt(datepara[0]);		
+		order.setDate(new Date(day,month,year));
+		order.getOrderPrice();
+		MyFoodoraSystem.getInstance().getOrdersHistory().add(order);
+	}
+	
+	public static void onDuty(Courrier courier,ArrayList<String> para) {
+		courier.setOn_duty(true);
+	}
+	
+	public static void offDuty(Courrier courier,ArrayList<String> para) {
+		courier.setOn_duty(false);
+	}
+	
+	public static void setDeliveryPolicy(Manager manager,ArrayList<String> para) {
+		if(para.get(0).equalsIgnoreCase("FastestDelivery"))
+			MyFoodoraSystem.getInstance().setDeliveryPolicy(new DeliveryPolicy.FastestDelivery());
+		else if (para.get(0).equalsIgnoreCase("Fair_occupationDelivery"))
+			MyFoodoraSystem.getInstance().setDeliveryPolicy(new DeliveryPolicy.Fair_occupationDelivery());
+		else System.out.println("La policie n'a pas été reconnu. \n veuillez entrer une policie existante");
+	}
+	
+	public static void setProfitPolicy(Manager manager,ArrayList<String> para) {
+		if(para.get(0).equalsIgnoreCase("TargetProfit_servicefee")) 
+			MyFoodoraSystem.getInstance().setTargetProfitPolicy(new TargetProfitPolicy.TargetProfit_servicefee());
+		else if(para.get(0).equalsIgnoreCase("TargetProfit_MarkupFee")) 
+			MyFoodoraSystem.getInstance().setTargetProfitPolicy(new TargetProfitPolicy.TargetProfit_MarkupFee());
+		else if (para.get(0).equalsIgnoreCase("TargetProfit_deliveryCost"))
+			MyFoodoraSystem.getInstance().setTargetProfitPolicy(new TargetProfitPolicy.TargetProfit_deliveryCost());
+	}
+	public static void showCustomers() {
+		System.out.println("Ci- dessous la liste des customers");
+		MyFoodoraSystem.getInstance().showCustomer();
+		}
+	
+	public static void showMenuItem(ArrayList<String> para) {
+		Restaurant restaurant=MyFoodoraSystem.getInstance().getRestaurant(para.get(0));
+		restaurant.showMenuItem();
+	}
+	public static void showtotalProfit() {
+		double profit =MyFoodoraSystem.getInstance().getSystemProfit();
+		System.out.println("The total profit of system is: "+profit+"€");
+		
 	}
 }

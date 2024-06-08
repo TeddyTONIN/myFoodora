@@ -16,6 +16,7 @@ public class Order extends OrderFactory {
 	private double markupPercentage;
 	private double deliveryCost;
 	private String orderName;
+	private Date date;
     
     public Order(Restaurant restaurant, Customer customer) {
     	
@@ -36,10 +37,25 @@ public class Order extends OrderFactory {
 	public Restaurant getRestaurant() {
 		return restaurant;
 	}
+	
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	public double getOrderPrice() {
+	// fonctions à vérifier 
+	public double calculateorderPrice() {
+		double s=0;
+		for (MenuItem menuItem:itemsOrdered) {
+			s=s+menuItem.getPrice();
+		}
+		return s ;
+	}
+	public double getOrderPrice(){
 		return orderPrice;
 	}
 	public void setOrderPrice(double price) {
