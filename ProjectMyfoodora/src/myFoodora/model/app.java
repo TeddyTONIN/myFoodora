@@ -36,7 +36,7 @@ public class app {
 				}
 			}
 			switch(command) {
-			case "runtest":
+			case "runTest":
 				LecteurScenario.runFileScénario(parameters.get(0));
 				break;
 			case "help":
