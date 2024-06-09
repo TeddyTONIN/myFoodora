@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import myFoodora.design.abstractFactory.*;
 import java.util.HashMap;
 
-public class Restaurant extends User {
+public class Restaurant extends User implements Comparable<Restaurant> {
 	private String name;
 	private Coordinate location;
 	private HashMap<String, ArrayList<MenuItem>> menu = new HashMap<>();
@@ -192,6 +192,12 @@ public class Restaurant extends User {
 
 	public HashMap<String, Order> getOrderHystory() {
 		return orderHystory;
+	}
+
+	@Override
+	public int compareTo(Restaurant o) {
+		// TODO Auto-generated method stub
+		return (o.getOrderHystory().size()- this.orderHystory.size());
 	}
 
 }

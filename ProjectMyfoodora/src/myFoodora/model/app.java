@@ -14,6 +14,12 @@ public class app {
 		Manager ceo=new Manager("ceo","123456789","Teddy","Olivers");
 		MyFoodoraSystem.getInstance().getManagersList().put("ceo", ceo);
 		
+		Manager rh=new Manager("rh","2002","Labell","auli");
+		MyFoodoraSystem.getInstance().getManagersList().put("rh", rh);
+		
+		String ConfigInitiale="my_foodora.ini";
+		LecteurScenario.runFileScénario(ConfigInitiale);
+		
 		Scanner scanner=new Scanner(System.in);
 		String command="";
 		String line="";
@@ -216,6 +222,12 @@ public class app {
 							if (parameters.size()==0)
 								UserInterface.showtotalProfit();
 							else UserInterface.showTotalProfit(parameters);
+							break;
+						case "showCourierDeliveries":
+							UserInterface.showCourierDeliveries();
+							break;
+						case "showRestaurantTop":
+							UserInterface.showRestaurantTop();
 							break;
 						}
 					}	

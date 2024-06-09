@@ -33,6 +33,10 @@ public class MyFoodoraSystem{
 	public double getP() {
 		return p;
 	}
+	
+	public Courrier getCourrierDeliver(Order order) {
+		return deliveryPolicy.allocateCourrier(new ArrayList<>(MyFoodoraSystem.getInstance().getCourriersList().values()), order);
+	}
 
 	public void setP(double p) {
 		this.p = p;
