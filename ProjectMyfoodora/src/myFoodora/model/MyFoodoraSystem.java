@@ -27,9 +27,17 @@ public class MyFoodoraSystem{
 	private ShippedOrderSortingPolicy shippedOrderSortingPolicy=new ShippedOrderSortingPolicy.SortedOrderedItem_à_la_carte();
 	private TargetProfitPolicy targetProfitPolicy=new TargetProfitPolicy.TargetProfit_servicefee();
 	
-	
+	private double p=0.3;// probability of wining the lottery
 	private double systemProfit=0;
 			
+	public double getP() {
+		return p;
+	}
+
+	public void setP(double p) {
+		this.p = p;
+	}
+
 	public static MyFoodoraSystem getInstance() {
 		return instance;
 	}

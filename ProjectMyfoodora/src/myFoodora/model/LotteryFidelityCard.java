@@ -4,12 +4,13 @@ import java.util.Random;
 public class LotteryFidelityCard extends FidelityCard {
 	
 	
-	public LotteryFidelityCard(Restaurant restaurant,Customer customer) {
-		super(restaurant,customer);
+	public LotteryFidelityCard(Customer customer) {
+		super(customer);
+		// TODO Auto-generated constructor stub
 	}
-	
+
 	public double computeDiscount(double priceWithoutDiscount) {
-		boolean outcome = bernoulliTrial(super.getRestaurant().getP());
+		boolean outcome = bernoulliTrial(MyFoodoraSystem.getInstance().getP());
 		return outcome ?  priceWithoutDiscount : 0;
 	}
 	

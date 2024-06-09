@@ -12,22 +12,16 @@ public class Customer extends User implements Observer {
 	private String email;
 	private String phone;
 	private boolean specialOffers = false;
-	private Map<String,Order> OrderHistory;
-	private ArrayList<FidelityCard> FidelityPlan;
+	private Map<String,Order> OrderHistory = new HashMap<String,Order>();
+	private FidelityCard fidelityCard = new BasicFidelityCard(this);
 	
-	
-	public Customer(String username, String password, Coordinate address, String email) {
-		super(username,password);
-		this.address = address;
-		this.email = email;
 
-	}
 	public Customer(String firstName,String lastName,String username,Coordinate address,String password) {
 		super(username,password);
 		this.address=address;
 		this.lastName=lastName;
 		this.firstName=firstName;
-		this.OrderHistory=new HashMap<>();
+
 	}
 
 	public String getFirstName() {
@@ -76,20 +70,20 @@ public class Customer extends User implements Observer {
 	}
 
 
-	public ArrayList<FidelityCard> getFidelityPlan() {
-		return FidelityPlan;
+	public FidelityCard getFidelityCard() {
+		return  fidelityCard;
 	}
 
-	public void setFidelityPlan(ArrayList<FidelityCard> fidelityPlan) {
-		FidelityPlan = fidelityPlan;
+	public void setFidelityCard(FidelityCard fidelityCard) {
+		this.fidelityCard = fidelityCard;
 	}
 	
 	public void registerFidelity(FidelityCard card) {
 		
-		FidelityPlan.add(card);
+		fidelityCard = card;
 	}
 	public void unregisterFidelity(FidelityCard card) {
-		FidelityPlan.remove(card);
+		fidelityCard = new BasicFidelityCard(this);
 	}
 	
 	public void placeOrder(Order order) {

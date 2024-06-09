@@ -9,22 +9,11 @@ public class Restaurant extends User {
 	private Coordinate location;
 	private  HashMap<String, ArrayList<MenuItem>> menu = new HashMap<>();
 	private Meal meal_of_the_week;
-    private HashMap<Customer,FidelityCard> customerFidelityPlans = new HashMap<Customer,FidelityCard>();
     
 
 	private  double genericDiscountFactor =0.5;
 
 	private double specialDiscountFactor=0.1;
-	private double p=0.3;// probability of wining the lottery
-
-
-	public double getP() {
-		return p;
-	}
-
-	public void setP(double p) {
-		this.p = p;
-	}
 
 	//rajout d'un constructeur ci-dessous pour qu'il match avec les arguments de l'interface
 	public Restaurant(String name,Coordinate location,String username,String password) {
@@ -102,10 +91,6 @@ public class Restaurant extends User {
 		this.specialDiscountFactor = specialDiscountFactor;
 	}
 	
-	
-	public HashMap<Customer, FidelityCard> getCustomerFidelityPlans() {
-		return customerFidelityPlans;
-	}
 
 	public void addDish(String name, String category, String type,double price) {
 		DishFactory dishFactory = new DishFactory();

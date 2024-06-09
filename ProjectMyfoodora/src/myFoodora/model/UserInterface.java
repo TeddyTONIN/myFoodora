@@ -112,8 +112,7 @@ public class UserInterface {
 		order.setDate(new Date(day,month,year));
 		order.getOrderPrice();
 		MyFoodoraSystem.getInstance().getOrdersHistory().add(order);
-		FidelityCard card = order.getRestaurant().getCustomerFidelityPlans().get(customer);
-		card.update();
+		customer.getFidelityCard().update();
 
 		
 	}

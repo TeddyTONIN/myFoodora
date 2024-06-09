@@ -1,42 +1,46 @@
 package myFoodora.model;
 
-
+import java.util.ArrayList;
+import java.util.Collection;
 
 public class PointFidelityCard extends FidelityCard {
-	private int points = 0;
-	private int pointsBeforeLastOrder ;
+	private int points;
+	private double reste ;
 
-	public PointFidelityCard(Restaurant restaurant, Customer customer) {
-		super(restaurant,customer);
+	public PointFidelityCard(Customer customer) {
+		super(customer);
+		// TODO Auto-generated constructor stub
 	}
+
 	public int getPoints() {
 		return points;
 	}
 	public void setPoints(int  points) {
 		this.points = points;
 	}
+	
 	@Override
 	public void update() {
-		double totalSpentBeforeLastOrder = 0.0;
-
-		int numOrder = MyFoodoraSystem.getInstance().getOrdersHistory().size();
-		if(numOrder >=2) {
-			for (int i=0;i<numOrder-1;i++) {
-				Order order = MyFoodoraSystem.getInstance().getOrdersHistory().get(i);
-				if((order.getCustomer().equals(super.getCustomer())) && (order.getRestaurant().equals(super.getRestaurant()))) {
-					totalSpentBeforeLastOrder+=order.getOrderPrice();	
-				}
-			}
-		}
-		int copyPoints = points;
-		points+=(totalSpentBeforeLastOrder-10*pointsBeforeLastOrder)%10;
-		pointsBeforeLastOrder = copyPoints;
+		// first get the last order
+		Collection <Order> collectionOrderHistory = super.getCustomer().getOrderHistory().values();
+		ArrayList<Order> orderHistory = new ArrayList<>(collectionOrderHistory);
+		Order lastOrder = orderHistory.get(orderHistory.size() - 1);
+		
+		// now udpdate reste and point
+		
+		reste+=lastOrder.getOrderPrice();
+		points+=(int)(reste/10);
+		reste=reste%10;
+		
+		
 	}
 	
 	@Override
 	public double computeDiscount(double priceWithoutDiscount) {
-		if ((points>pointsBeforeLastOrder) && (points%100==0)) {
-			return ((points-pointsBeforeLastOrder)%100+1)*10;
+		if ((points%100==0)) {
+			int res = ((points)%100)*10;
+			points = points%100;
+			return res;
 		}
 		return 0.0;
 	}
