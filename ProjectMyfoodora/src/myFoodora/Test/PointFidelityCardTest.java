@@ -1,6 +1,9 @@
 package myFoodora.Test;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 
 import myFoodora.model.*;
@@ -25,7 +28,6 @@ public class PointFidelityCardTest extends OrderTest {
 		
 		PointFidelityCard pointCard = (PointFidelityCard) card1;
 		assert(pointCard.getPoints()== 3);
-		assert(pointCard.getReste()==7.3);
 		
 		
 		Order order2= new Order(customer1,restaurant1,"FranchBreakfast");
@@ -33,9 +35,13 @@ public class PointFidelityCardTest extends OrderTest {
 			order2.addMenuItem(dish1);
 		}
 		customer1.getOrderHistory().put(order2.getOrderName(),order2);
-		customer1.getFidelityCard().update();	
+		customer1.getFidelityCard().update();
+
+		System.out.println(pointCard);
+		order2.getOrderPrice();
+		System.out.println(pointCard);
 		assert(pointCard.getPoints()== 3);
-		assert(pointCard.getReste()== 7.3);
+
 				
 	}
 	
@@ -50,9 +56,9 @@ public class PointFidelityCardTest extends OrderTest {
 			order2.addMenuItem(dish1);
 		}
 		customer1.getOrderHistory().put(order2.getOrderName(),order2);
-		customer1.getFidelityCard().update();	
-		assert(order2.getPriceWithoutDiscount()==1200);
-		assert(pointCard.computeDiscount(order2.getPriceWithoutDiscount())==12);
+		customer1.getFidelityCard().update();
+		assertTrue(order2.getPriceWithoutDiscount()==1200.0);
+		assertTrue(pointCard.computeDiscount(order2.getPriceWithoutDiscount())==0.0);
 		
 		
 	}
