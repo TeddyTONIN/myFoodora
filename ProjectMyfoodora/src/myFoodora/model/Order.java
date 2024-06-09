@@ -8,7 +8,7 @@ import myFoodora.design.abstractFactory.OrderFactory;
 public class Order extends OrderFactory {
 	
 	private Restaurant restaurant;
-	private double orderPrice;
+	private double finalOrderPrice;
 	private double restaurantPrice;
 	private ArrayList<MenuItem> itemsOrdered;
     private Customer customer;
@@ -19,6 +19,7 @@ public class Order extends OrderFactory {
 	private double deliveryCost;
 	private String orderName;
 	private Date date;
+
     
 	public Order(Restaurant restaurant, Customer customer) {
     	
@@ -31,7 +32,7 @@ public class Order extends OrderFactory {
     	this.orderName=orderName;
     	this.itemsOrdered=new ArrayList<MenuItem>();
     }
-
+    
 
     public void addMenuItem(MenuItem menuItem) {
         itemsOrdered.add(menuItem);
@@ -68,13 +69,18 @@ public class Order extends OrderFactory {
 
 		return this.getPriceWithoutDiscount()-this.getDiscountOnOrder(this.getPriceWithoutDiscount());
 	}
-	public void setOrderPrice(double price) {
-		this.orderPrice = price;
-	}
 	
+	
+	public double getFinalOrderPrice() {
+		return finalOrderPrice;
+	}
+	public void setFinalOrderPrice(double finalOrderPrice) {
+		this.finalOrderPrice = finalOrderPrice;
+	}
 	public ArrayList<MenuItem> getItemsOrdered() {
 		return itemsOrdered;
 	}
+
 	public Customer getCustomer() {
 		return customer;
 	}

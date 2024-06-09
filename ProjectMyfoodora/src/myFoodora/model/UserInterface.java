@@ -119,7 +119,8 @@ public class UserInterface {
 		int month = Integer.parseInt(datepara[1]);
 		int year = Integer.parseInt(datepara[2]);
 		order.setDate(new Date(day, month, year));
-		order.getOrderPrice();
+
+		order.setFinalOrderPrice(order.getOrderPrice());
 		MyFoodoraSystem.getInstance().getOrdersHistory().add(order);
 		customer.getFidelityCard().update();
 
