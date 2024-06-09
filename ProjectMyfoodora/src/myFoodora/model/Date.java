@@ -11,4 +11,9 @@ public class Date {
 		this.year = year;
 	}
 	
+	@Override
+	public boolean equals(Object objt) {
+		if
+	}
+	
 }

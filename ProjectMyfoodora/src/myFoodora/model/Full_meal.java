@@ -28,6 +28,15 @@ public class Full_meal extends Meal {
 			type=FoodCategory.standard;
 		}
 	}
+	@Override 
+	public void computePrice(double discountfactor) {
+		if (item3==null) {
+			setPrice((1-discountfactor)*(getItem1().getPrice()+getItem2().getPrice()));
+		}
+		else
+		setPrice((1-discountfactor)*(getItem1().getPrice()+getItem2().getPrice()+item3.getPrice()));
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString()+ "item3=" + item3 + ", type=" + type + "]";

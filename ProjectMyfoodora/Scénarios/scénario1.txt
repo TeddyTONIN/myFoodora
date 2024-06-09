@@ -1,4 +1,4 @@
-login ceo 123456789
+login ceo 123456789 
 registerRestaurant TourDargent 45,50 TourDargent 123
 logout
 login TourDargent 123

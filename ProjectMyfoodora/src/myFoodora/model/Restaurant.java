@@ -12,9 +12,9 @@ public class Restaurant extends User {
     private HashMap<Customer,FidelityCard> customerFidelityPlans = new HashMap<Customer,FidelityCard>();
     
 
-	private  double genericDiscountFactor ;
+	private  double genericDiscountFactor =0.5;
 
-	private double specialDiscountFactor;
+	private double specialDiscountFactor=0.1;
 	private double p=0.3;// probability of wining the lottery
 
 

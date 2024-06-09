@@ -212,7 +212,7 @@ public class UserInterface {
 	}
 	
 	public static void addDish2Meal(Restaurant restaurant,ArrayList<String> para) {
-		Meal meal=(Full_meal)restaurant.getMealItem(para.get(1));
+		Full_meal meal=(Full_meal)restaurant.getMealItem(para.get(1));
 		Dish dish=restaurant.getDishItem(para.get(0));
 		if (meal.getItem1()==null) {
 			meal.setItem1(dish);	
@@ -221,6 +221,7 @@ public class UserInterface {
 			meal.setItem2(dish);	
 			}
 		else {
+			meal.setItem3(dish);
 			}
 		}
 	public static void showMeal(Restaurant restaurant,ArrayList<String> para) {
@@ -228,7 +229,17 @@ public class UserInterface {
 	}
 	
 	public static void saveMeal(Restaurant restaurant,ArrayList<String> para){
-		System.out.println("meal sauvegardé");
+		Meal meal=(Full_meal)restaurant.getMealItem(para.get(0));
+		if (((Full_meal) meal).getItem3()==null) {
+			meal=(Meal)meal;
+			meal.computePrice(restaurant.getGenericDiscountFactor());
+			System.out.println("Half_meal sauvegardé");
+			}
+		else {
+			meal=(Full_meal)meal;
+			meal.computePrice(restaurant.getGenericDiscountFactor());
+			System.out.println(" Full meal sauvegardé");
+		}
 	}
 	
 	public static void setSpecialOffer(Restaurant restaurant,ArrayList<String> para) {
