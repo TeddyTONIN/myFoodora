@@ -28,8 +28,8 @@ public class MealTest {
 		MyFoodoraSystem.getInstance().getRestaurantsList().put("TourDargent", restaurant1);
 		
 		//création d'un meal vide
-		Full_meal meal=new Full_meal("SaveurDAfrique");
-		Full_meal meal1=new Full_meal("SaveurDor");
+		Full_meal meal=new Full_meal("SaveurDAfrique",restaurant1);
+		Full_meal meal1=new Full_meal("SaveurDor",restaurant1);
 		restaurant1.addMeal(meal);
 		
 		//ajout d'un dish a un mealVide
@@ -39,6 +39,7 @@ public class MealTest {
 		meal.setItem1(dish1);
 		meal.setItem2(dish2);
 		meal1.setItem1(dish1);
+		meal1.setItem2(dish1);
 		
 		ArrayList<String> para=new ArrayList<String>();
 		para.add("SaveurDAfrique");
@@ -51,7 +52,7 @@ public class MealTest {
 		Restaurant restaurant = MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
 		Meal meal=restaurant.getMealItem("SaveurDAfrique");
 		
-		assertTrue(meal.getPrice()==10);
+		assertTrue(meal.getPrice()==19);
 	}
 
 }

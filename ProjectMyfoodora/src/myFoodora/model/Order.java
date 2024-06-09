@@ -50,7 +50,6 @@ public class Order extends OrderFactory {
 	public void setRestaurant(Restaurant restaurant) {
 		this.restaurant = restaurant;
 	}
-	// fonctions à vérifier 
 	
 	public double getPriceWithoutDiscount(){
 		double s=0;
@@ -61,7 +60,7 @@ public class Order extends OrderFactory {
 	}
     public double getDiscountOnOrder(double priceWithoutDiscount) {
     	
-    	FidelityCard card = this.getRestaurant().getCustomerFidelityPlans().get(customer);
+    	FidelityCard card = customer.getFidelityCard();
 		return card.computeDiscount(priceWithoutDiscount);
 	}
 

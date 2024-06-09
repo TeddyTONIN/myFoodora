@@ -119,7 +119,7 @@ public class UserInterface {
 		int month = Integer.parseInt(datepara[1]);
 		int year = Integer.parseInt(datepara[2]);
 		order.setDate(new Date(day, month, year));
-		order.getOrderPrice();
+		//order.getOrderPrice();
 		MyFoodoraSystem.getInstance().getOrdersHistory().add(order);
 		customer.getFidelityCard().update();
 
@@ -209,7 +209,7 @@ public class UserInterface {
 	}
 
 	public static void createMeal(Restaurant restaurant, ArrayList<String> para) {
-		Full_meal meal = mF.createMeal(para.get(0));
+		Full_meal meal = mF.createMeal(para.get(0),restaurant );
 		ArrayList<MenuItem> meals = restaurant.getMenu().get("meals");
 		meals.add(meal);
 	}

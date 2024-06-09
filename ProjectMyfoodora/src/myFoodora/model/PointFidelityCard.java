@@ -12,6 +12,10 @@ public class PointFidelityCard extends FidelityCard {
 		// TODO Auto-generated constructor stub
 	}
 
+	public double getReste() {
+		return reste;
+	}
+
 	public int getPoints() {
 		return points;
 	}
