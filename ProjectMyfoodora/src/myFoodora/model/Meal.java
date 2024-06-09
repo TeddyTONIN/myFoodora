@@ -28,7 +28,7 @@ public class Meal implements MenuItem{
 		if(!is_meal_of_the_week) {
 			this.computePrice(restaurant.getGenericDiscountFactor());
 		}
-		this.computePrice(restaurant.getSpecialDiscountFactor());
+		else this.computePrice(restaurant.getSpecialDiscountFactor());
 		
 		return price;
 	}

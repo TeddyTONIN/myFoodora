@@ -73,7 +73,7 @@ public class UserInterfaceTest {
 		MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().put("vide", orderVide);
 		//Création d'un meal vide 
 		Restaurant restaurant =MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
-		Full_meal meal=new Full_meal("SaveurDAfrique");
+		Full_meal meal=new Full_meal("SaveurDAfrique",restaurant);
 		restaurant.addMeal(meal);
 		
 		//ajout d'un dish a un mealVide
