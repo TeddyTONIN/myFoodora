@@ -251,12 +251,11 @@ public class UserInterface {
 		restaurant.setMeal_of_the_week(null);
 	}
 
-	public void showTotalProfit() {
-		System.out.println(
-				"The total profit of the system is :" + MyFoodoraSystem.getInstance().getSystemProfit() + " €.");
+	public static void showTotalProfit() {
+		System.out.println("The total profit of the system is :" + MyFoodoraSystem.getInstance().getSystemProfit() + " €.");
 	}
 
-	public void showTotalProfit(ArrayList<String> para) {
+	public static void showTotalProfit(ArrayList<String> para) {
 		String[] datepara1 = para.get(0).split("/");
 		int day1 = Integer.parseInt(datepara1[0]);
 		int month1 = Integer.parseInt(datepara1[1]);
@@ -275,9 +274,21 @@ public class UserInterface {
 
 	}
 
-	public void associateCard(ArrayList<String> para) {
+	public static void associateCard(ArrayList<String> para) {
 		Customer customer = MyFoodoraSystem.getInstance().getClient(para.get(0));
+		FidelityCard fcard =customer.getFidelityCard();
+		if (para.get(1)=="BasicFidelityCard") {
+			fcard=new BasicFidelityCard(customer);
+		}
+		else if (para.get(1)=="LotteryFidelityCard") {
+			fcard=new LotteryFidelityCard(customer);
+		}
+		else if (para.get(1)=="PointFidelityCard"){
+			fcard=new PointFidelityCard(customer);
+		}
+		else System.out.println("The card type is unknown");	
 	}
+
 
 	public void showCourierDeliveries() {
 	}

@@ -37,4 +37,12 @@ public class User {
 		this.username = username;
 		this.password = "0000";
 	}
+
+
+	@Override
+	public String toString() {
+		return "username=" + username;
+	}
+	
+	
 }

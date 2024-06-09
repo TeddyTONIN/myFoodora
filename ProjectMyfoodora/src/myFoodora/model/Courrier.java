@@ -3,14 +3,14 @@ import myFoodora.design.observer.*;
 
 import java.util.ArrayList;
 
-public class Courrier extends User implements Observable{
+public class Courrier extends User implements Observable,Comparable<Courrier>{
 	
 	private ArrayList<Observer> observers = new ArrayList<Observer>();
 	private String firstName;
 	private String lastName;
 	private Coordinate position;
-	private int counter = 0;
-	private boolean on_duty;
+	private int nbCompletedOrder = 0;
+	private boolean on_duty=true;
 	
 	public Courrier(String ID, String username, String password,String firstName, String surname) {
 		super(username, password);
@@ -45,12 +45,8 @@ public class Courrier extends User implements Observable{
 		this.position = position;
 	}
 
-	public int getCounter() {
-		return counter;
-	}
-
-	public void setCounter(int counter) {
-		this.counter = counter;
+	public int getNbCompletedOrder() {
+		return nbCompletedOrder;
 	}
 
 	@Override
@@ -78,6 +74,18 @@ public class Courrier extends User implements Observable{
 	public void setOn_duty(boolean on_duty) {
 		this.on_duty = on_duty;
 	}
+	
+	@Override
+	public int compareTo(Courrier cr) {
+		return (this.nbCompletedOrder -cr.getNbCompletedOrder());
+	}
+
+	@Override
+	public String toString() {
+		return "Courrier ["+super.toString()+", Position" + position +", isOnduty :"+on_duty+"]";
+	}
+	
+	
 	
 	
 

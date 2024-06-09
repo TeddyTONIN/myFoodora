@@ -209,8 +209,14 @@ public class app {
 						case "showCustomers":
 							UserInterface.showCustomers();
 							break;
-						case "showtotalProfit":
-							UserInterface.showtotalProfit();
+						case "associateCard":
+							UserInterface.associateCard(parameters);
+							break;
+						case "showTotalProfit":
+							if (parameters.size()==0)
+								UserInterface.showtotalProfit();
+							else UserInterface.showTotalProfit(parameters);
+							break;
 						}
 					}	
 				}

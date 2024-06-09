@@ -117,7 +117,6 @@ public class LecteurScenario {
 						default:
 							System.out.println("commande restaurant non reconnue");
 							break;
-								
 						}
 					}
 					
@@ -200,8 +199,13 @@ public class LecteurScenario {
 						case "showCustomers":
 							UserInterface.showCustomers();
 							break;
-						case "showtotalProfit":
-							UserInterface.showtotalProfit();
+						case "associateCard":
+							UserInterface.associateCard(parameters);
+							break;
+						case "showTotalProfit":
+							if (parameters.size()==0)UserInterface.showtotalProfit();
+							else UserInterface.showTotalProfit(parameters);
+							break;
 						}
 					}	
 				}
