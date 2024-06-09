@@ -29,7 +29,7 @@ public class RestaurantTest {
 		MyFoodoraSystem.getInstance().getRestaurantsList().put("TourDargent", restaurant1);
 		
 		//création d'un meal vide
-		Full_meal meal=new Full_meal("SaveurDAfrique");
+		Full_meal meal=new Full_meal("SaveurDAfrique",restaurant1);
 		restaurant1.addMeal(meal);
 		
 		//ajout d'un dish a un mealVide

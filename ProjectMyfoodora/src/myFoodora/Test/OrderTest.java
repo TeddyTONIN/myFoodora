@@ -78,11 +78,10 @@ public class OrderTest {
 		for (int i =0;i<1000;i++) {
 			order.addMenuItem(dish1);
 		}
-
 		order.addMenuItem(meal1);
 
 		double s =0 ;
-		s+=2*dish1.getPrice()+ meal1.getPrice();
+		s+=1000*dish1.getPrice()+ meal1.getPrice();
 		assert(order.getOrderPrice()== s);
 		assert(order.getOrderPrice()== 12013.3);
 		

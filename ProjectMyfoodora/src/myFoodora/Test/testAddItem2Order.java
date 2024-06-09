@@ -39,7 +39,7 @@ public class testAddItem2Order {
 				paraDish.add("standard");
 				paraDish.add("25");
 				UserInterface.addDishRestaurantMenu("TourDargent",paraDish);
-				System.out.println(MyFoodoraSystem.getInstance().getRestaurant("TourDargent").getMain_dishes().getFirst());
+				System.out.println(MyFoodoraSystem.getInstance().getRestaurant("TourDargent").getMain_dishes().get(0));
 				
 				//création d'un order pour le restau tour dargent
 				ArrayList<String> orderVide=new ArrayList<String>();
