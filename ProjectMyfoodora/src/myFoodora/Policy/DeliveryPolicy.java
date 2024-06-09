@@ -35,7 +35,7 @@ public interface DeliveryPolicy extends Policy {
 				System.out.println("No courier available now for this delivery");
 				return null;
 			}
-			System.out.println("The system  fair delivery has found a courier available");
+			System.out.println("Le courrier "+cour.getName()+" will deliver this order");
 			return cour;
 		}
 
@@ -69,7 +69,7 @@ public interface DeliveryPolicy extends Policy {
 				System.out.println("No courier available now for this delivery");
 				return null;
 			}
-			System.out.println("The system  fastest has found a courier available");
+			System.out.println("Le courrier "+courierIni.getName()+" will deliver this order");
 			return courierIni;
 		}
 	}

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 
 import myFoodora.Policy.DeliveryPolicy;
 import myFoodora.Policy.TargetProfitPolicy;
@@ -113,7 +114,15 @@ public class UserInterface {
 	public static void endOrder(Customer customer, ArrayList<String> para) {
 		Order order = customer.getOrderHistory().get(para.get(0));
 		Restaurant restaurant = order.getRestaurant();
-		restaurant.getOrderHystory().put(order.getOrderName(), order);
+		try {
+			Courrier courrier=MyFoodoraSystem.getInstance().getCourrierDeliver(order);
+			courrier.setNbCompletedOrder(courrier.getNbCompletedOrder()+1);
+			courrier.setOn_duty(false);
+			restaurant.getOrderHystory().put(order.getOrderName(), order);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			System.out.println("As there is no courier available, please try to en your order in cople of times");
+		}
 		String[] datepara = para.get(1).split("/");
 		int day = Integer.parseInt(datepara[0]);
 		int month = Integer.parseInt(datepara[1]);
@@ -291,7 +300,25 @@ public class UserInterface {
 	}
 
 
-	public void showCourierDeliveries() {
+	public static void showCourierDeliveries() {
+		ArrayList<Courrier> courriers=new ArrayList<>(MyFoodoraSystem.getInstance().getCourriersList().values());
+		Collections.sort(courriers);
+		Collections.reverse(courriers);
+		System.out.println("The Rankings of courriers in terms of number of deliveries");
+		for(Courrier courier : courriers) {
+			System.out.println(courier.getName()+" number of deliveries realised:"+courier.getNbCompletedOrder());
+			
+		}
+	}
+	
+	public static void showRestaurantTop() {
+		ArrayList<Restaurant> restaurants=new ArrayList<>(MyFoodoraSystem.getInstance().getRestaurantsList().values());
+		Collections.sort(restaurants);
+		System.out.println("The Rankings of restaurants in terms of number of deliveries");
+		for(Restaurant restaurant : restaurants) {
+			System.out.println(restaurant.getName()+" number of deliveries realised:"+restaurant.getOrderHystory().size());
+			
+		}
 	}
 
 }

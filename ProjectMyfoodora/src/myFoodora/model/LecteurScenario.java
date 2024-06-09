@@ -13,7 +13,7 @@ public class LecteurScenario {
 		FileReader fr=new FileReader(filepath);
 		BufferedReader reader=new BufferedReader(fr);
 		String command="";
-		while(command.equals("exit")==false) {
+		while(command.equals("terminé")==false) {
 			System.out.println("Entrez une commande ou fermez le système:");
 			String line=reader.readLine();
 			String []listMots= line.split(" ");
@@ -25,13 +25,14 @@ public class LecteurScenario {
 				}
 			}
 			switch(command) {
-			case "exit":
+			case "terminé":
 				reader.close();
 				System.out.println(" \n \n CHARGEMENT DU SCENARIO REUSSIT !!");
 				break;
 			default:
 				System.out.println("Commande non reconnue");
 				break;
+				
 				
 			//Partie de code dédiée à la connexion des utilisateurs et leurs fonctionnement	
 			case "login" :
@@ -205,6 +206,12 @@ public class LecteurScenario {
 						case "showTotalProfit":
 							if (parameters.size()==0)UserInterface.showtotalProfit();
 							else UserInterface.showTotalProfit(parameters);
+							break;
+						case "showRestaurantTop":
+							UserInterface.showRestaurantTop();
+							break;
+						case "showCourierDeliveries":
+							UserInterface.showCourierDeliveries();
 							break;
 						}
 					}	
