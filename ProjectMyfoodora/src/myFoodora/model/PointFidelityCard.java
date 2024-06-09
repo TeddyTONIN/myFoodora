@@ -41,12 +41,19 @@ public class PointFidelityCard extends FidelityCard {
 	
 	@Override
 	public double computeDiscount(double priceWithoutDiscount) {
-		if ((points/100)>0) {
+
+		if ((points%100)>0) {
+			System.out.println("Yes");
 			int res = ((points)%100)*10;
 			points = points%100;
 			return res;
 		}
 		return 0.0;
+	}
+
+	@Override
+	public String toString() {
+		return "PointFidelityCard [points=" + points + ", reste=" + reste + "]";
 	}
 	
 
