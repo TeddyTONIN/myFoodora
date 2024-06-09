@@ -39,5 +39,23 @@ public class PointFidelityCardTest extends OrderTest {
 				
 	}
 	
+	@Test
+	public void testPricingWithPointsDiscount(){
+		
+		this.initialisation();
+		PointFidelityCard pointCard = (PointFidelityCard) card1;		
+		
+		Order order2= new Order(customer1,restaurant1,"FranchBreakfast");
+		for (int i =0;i<100;i++) {
+			order2.addMenuItem(dish1);
+		}
+		customer1.getOrderHistory().put(order2.getOrderName(),order2);
+		customer1.getFidelityCard().update();	
+		assert(order2.getPriceWithoutDiscount()==1200);
+		assert(pointCard.computeDiscount(order2.getPriceWithoutDiscount())==12);
+		
+		
+	}
+	
 
 }

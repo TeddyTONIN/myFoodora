@@ -65,7 +65,7 @@ public class Order extends OrderFactory {
 	}
 
 	public double getOrderPrice(){
-	
+
 		return this.getPriceWithoutDiscount()-this.getDiscountOnOrder(this.getPriceWithoutDiscount());
 	}
 	public void setOrderPrice(double price) {
