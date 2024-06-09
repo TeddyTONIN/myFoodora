@@ -35,7 +35,7 @@ public class MyFoodoraSystem{
 	}
 	
 	public double profitForOneOrder(Order order) {
-		return( order.getOrderPrice()*order.getMarkupPercentage()+order.getServiceFee()-order.getDeliveryCost());
+		return( order.getOrderPrice()*order.getMarkupPercentage()+order.getServiceFee());//-order.getDeliveryCost()
 	}
 	
 	public double totalIncome() {

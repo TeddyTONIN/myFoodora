@@ -6,8 +6,8 @@ public class PointFidelityCard extends FidelityCard {
 	private int points = 0;
 	private int pointsBeforeLastOrder ;
 
-	public PointFidelityCard(Restaurant restaurant) {
-		super(restaurant);
+	public PointFidelityCard(Restaurant restaurant, Customer customer) {
+		super(restaurant,customer);
 	}
 	public int getPoints() {
 		return points;
@@ -29,7 +29,6 @@ public class PointFidelityCard extends FidelityCard {
 			}
 		}
 		int copyPoints = points;
-		
 		points+=(totalSpentBeforeLastOrder-10*pointsBeforeLastOrder)%10;
 		pointsBeforeLastOrder = copyPoints;
 	}
