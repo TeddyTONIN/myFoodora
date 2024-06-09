@@ -31,20 +31,17 @@ public class PointFidelityCard extends FidelityCard {
 		Order lastOrder = orderHistory.get(orderHistory.size() - 1);
 		
 		// now udpdate reste and point
-		
-		reste+=lastOrder.getOrderPrice();
+		reste+=lastOrder.getFinalOrderPrice();
 		points+=(int)(reste/10);
 		reste=reste%10;
-		
 		
 	}
 	
 	@Override
 	public double computeDiscount(double priceWithoutDiscount) {
 
-		if ((points%100)>0) {
-			System.out.println("Yes");
-			int res = ((points)%100)*10;
+		if ((points/100)>0) {
+			int res = ((points)/100)*10;
 			points = points%100;
 			return res;
 		}
@@ -55,7 +52,5 @@ public class PointFidelityCard extends FidelityCard {
 	public String toString() {
 		return "PointFidelityCard [points=" + points + ", reste=" + reste + "]";
 	}
-	
-
 
 }

@@ -45,10 +45,7 @@ public class OrderTest {
 		//Création d'un Order
 		order = new Order(customer1,restaurant1,"DiscoverAfrica");
 		
-		// Rajout dans le système
-		//MyFoodoraSystem.getInstance().getClientsList().put("Teddy",customer1);
-		//MyFoodoraSystem.getInstance().getRestaurantsList().put("TourDargent", restaurant1);
-		//MyFoodoraSystem.getInstance().getOrdersHistory().add(order);
+
 		
 	}
 	
@@ -61,15 +58,19 @@ public class OrderTest {
 	}
 
 	@Test
-	public void testGetOrderPriceDiscount() {
+	public void testGetOrderPriceWithoutDiscount() {
 		this.initialisation();
 		order.addMenuItem(dish1);
 		order.addMenuItem(dish1);
 		order.addMenuItem(meal1);
+		
+		order.setFinalOrderPrice(order.getOrderPrice());
+		
 		double s =0 ;
 		s+=2*dish1.getPrice()+ meal1.getPrice();
-		assert(order.getOrderPrice()== s);
-		assert(order.getOrderPrice()== 37.3);
+
+		assert(order.getFinalOrderPrice()== s);
+		assert(order.getFinalOrderPrice()== 37.3);
 		
 	}
 
