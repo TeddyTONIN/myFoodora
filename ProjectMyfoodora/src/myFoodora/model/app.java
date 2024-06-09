@@ -200,7 +200,7 @@ public class app {
 						case "registerCustomer":
 							UserInterface.registerCustomer(parameters);
 							break;
-						case "registerCourrier":
+						case "registerCourier":
 							UserInterface.registerCourrier(parameters);
 							break;
 						case "setDeliveryPolicy":

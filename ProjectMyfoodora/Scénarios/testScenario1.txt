@@ -1,0 +1,80 @@
+login ceo 123456789
+registerRestaurant ChezPizzaRestau 10,3 Restau 123ChezRestau
+registerRestaurant Hotspur 4,3 Hottt 123Hott
+registerRestaurant FriedChicken 4,3 FriedChick 123FriedChick
+registerCustomer Bernard Arnaud Bernaud 18,3 123Bernau
+associateCard Bernaud PointFidelityCard
+registerCustomer Fernando Karen Ferdinand 18,19 123Ferdinand
+registerCourier Fagla Toti Fati 56,5 123Fati
+registerCourier Kolo Randal Kolodal 4,5 123kolodal
+logout 
+login Restau 123ChezRestau
+addDishRestaurantMenu Fried_Chicken main_dish standard 100
+addDishRestaurantMenu Fried_Rice main_dish standard 130
+addDishRestaurantMenu Stirred_Pork main_dish standard 220
+addDishRestaurantMenu Red_beans main_dish vegetarian 22
+addDishRestaurantMenu IceCream dessert standard 50
+addDishRestaurantMenu Coco dessert standard 40
+addDishRestaurantMenu Papaya dessert standard 40
+creteMeal Atlantic 
+addDish2Meal Fried_Rice Atlantic
+addDish2Meal Papaya Atlantic
+showMeal Atlantic
+saveMeal Atlantic
+setSpecialOffer Atlantic
+logout
+login Hottt 123Hott
+addDishRestaurantMenu Iced_Chicken main_dish standard 12
+addDishRestaurantMenu Red_Rice main_dish standard 15
+addDishRestaurantMenu Beans main_dish vegetarian 18
+addDishRestaurantMenu Cream dessert standard 5
+addDishRestaurantMenu Coco dessert standard 4
+addDishRestaurantMenu Papaya dessert standard 4
+creteMeal GreatApetite
+addDish2Meal Fried_Rice GreatApetite
+addDish2Meal Papaya GreatApetite
+showMeal GreatApetite
+saveMeal GreatApetite
+logout 
+login Bernaud 123Bernau 
+createOrder ChezPizzaRestau HungryBig 
+addItem2Order HungryBig Fried_Chicken
+addItem2Order HungryBig Fried_Chicken
+addItem2Order HungryBig Fried_Chicken
+addItem2Order HungryBig Fried_Chicken
+addItem2Order HungryBig Fried_Chicken
+addItem2Order HungryBig Atlantic
+adddItem2Order HungryBig Atlantic
+endOrder HungryBig  1/12/2023
+createOrder ChezPizzaRestau HungryBiger 
+addItem2Order HungryBiger Fried_Chicken
+addItem2Order HungryBiger Fried_Chicken
+addItem2Order HungryBiger Fried_Chicken
+addItem2Order HungryBiger Fried_Chicken
+endOrder HungryBig  2/12/2023
+createOrder Hottt HungryBiggy 
+addItem2Order HungryBiggy Iced_Chicken
+addItem2Order HungryBiggy Iced_Chicken
+endOrder HungryBig  3/12/2024
+logout
+login ceo 123456789
+setDeliveryPolicy FastestDeliveryPolicy
+showCourierDeliveries
+showRestaurantTop
+showCustomers
+showTotalProfit 
+findDelivery HungryBiggy
+logout
+login Kolodal 123kolodal
+onffDuty Kolodal
+logout 
+login ceo 12345689
+associateCard Bernaud LotteryFidelityCard
+logout
+
+
+
+
+
+
+ 
