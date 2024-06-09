@@ -30,7 +30,7 @@ public class app {
 				}
 			}
 			switch(command) {
-			case "runtest":
+			case "runTest":
 				LecteurScenario.runFileScénario(parameters.get(0));
 				break;
 			case "help":
@@ -194,7 +194,7 @@ public class app {
 						case "registerCustomer":
 							UserInterface.registerCustomer(parameters);
 							break;
-						case "registerCourrier":
+						case "registerCourier":
 							UserInterface.registerCourrier(parameters);
 							break;
 						case "setDeliveryPolicy":
