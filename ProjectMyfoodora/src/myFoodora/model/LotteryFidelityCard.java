@@ -4,8 +4,8 @@ import java.util.Random;
 public class LotteryFidelityCard extends FidelityCard {
 	
 	
-	public LotteryFidelityCard(Restaurant restaurant) {
-		super(restaurant);
+	public LotteryFidelityCard(Restaurant restaurant,Customer customer) {
+		super(restaurant,customer);
 	}
 	
 	public double computeDiscount(double priceWithoutDiscount) {
