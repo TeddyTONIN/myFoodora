@@ -48,6 +48,9 @@ public class Courrier extends User implements Observable,Comparable<Courrier>{
 	public int getNbCompletedOrder() {
 		return nbCompletedOrder;
 	}
+	public void setNbCompletedOrder(int a) {
+		nbCompletedOrder=a;
+	}
 
 	@Override
 	public void notify(Observer observer) {
@@ -85,7 +88,14 @@ public class Courrier extends User implements Observable,Comparable<Courrier>{
 		return "Courrier ["+super.toString()+", Position" + position +", isOnduty :"+on_duty+"]";
 	}
 	
-	
+	@Override 
+	public boolean equals(Object obj) {
+		if(obj==this)return true;
+		if(obj!=null && obj.getClass()==this.getClass()) {
+			return((Courrier)obj).getUsername()==this.getUsername();
+		}
+		return false;
+	}
 	
 	
 

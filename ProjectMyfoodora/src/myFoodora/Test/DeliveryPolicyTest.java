@@ -42,24 +42,25 @@ public class DeliveryPolicyTest {
 		//création de courrier
 		ArrayList<Courrier> courriers=new ArrayList<Courrier>();
 		Courrier courrier1= new Courrier("courier1", "courrier1", "courier1",new Coordinate(50,45), "000");
+		courrier1.setNbCompletedOrder(4);
 		courriers.add(courrier1);
-		//courrier1.setOn_duty(false);
 		MyFoodoraSystem.getInstance().getCourriersList().put(courrier1.getName(), courrier1);
 		Courrier courrier2= new Courrier("courier2", "courrier2", "courier2", new Coordinate(76,45), "000");
+		courrier2.setNbCompletedOrder(3);
 		courriers.add(courrier2);
-		courrier2.setOn_duty(false);
 		MyFoodoraSystem.getInstance().getCourriersList().put(courrier2.getName(), courrier2);
 		Courrier courrier3= new Courrier("courier3", "courrier1", "courier3",new Coordinate(25,45), "000");
+		courrier3.setNbCompletedOrder(2);
 		courriers.add(courrier3);
-		courrier3.setOn_duty(false);
 		MyFoodoraSystem.getInstance().getCourriersList().put(courrier3.getName(), courrier3);
 		Courrier courrier4= new Courrier("courier4", "courrier1", "courier4", new Coordinate(0,15), "000");
+		courrier4.setNbCompletedOrder(1);
 		courriers.add(courrier4);
 		courrier4.setOn_duty(false);
 		MyFoodoraSystem.getInstance().getCourriersList().put(courrier4.getName(), courrier4);
 		Courrier courrier5= new Courrier("courier5", "courrier1", "courier5",new Coordinate(25,15), "000");
+		courrier5.setNbCompletedOrder(14);
 		courriers.add(courrier5);
-		courrier5.setOn_duty(false);
 		MyFoodoraSystem.getInstance().getCourriersList().put(courrier5.getName(), courrier5);	
 	}
 	
@@ -67,10 +68,18 @@ public class DeliveryPolicyTest {
 	public void testFastestDelivery() {
 		DeliveryPolicy nD= new DeliveryPolicy.FastestDelivery();
 		ArrayList<Courrier> courriers=new ArrayList<>(MyFoodoraSystem.getInstance().getCourriersList().values());
-		System.out.println(courriers);
 		Order order=MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().get("vide");
 		Courrier c=nD.allocateCourrier(courriers, order);
-		assertTrue(c.getName().equals("courier5"));
+		assertTrue(c.getUsername().equals("courier5"));
+	}
+	
+	@Test
+	public void testFairOccupationDelivery() {
+		DeliveryPolicy nD= new DeliveryPolicy.Fair_occupationDelivery();
+		ArrayList<Courrier> courriers=new ArrayList<>(MyFoodoraSystem.getInstance().getCourriersList().values());
+		Order order=MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().get("vide");
+		Courrier c=nD.allocateCourrier(courriers, order);
+		assertTrue(c.getUsername().equals("courier3"));
 	}
 	
 	@Test

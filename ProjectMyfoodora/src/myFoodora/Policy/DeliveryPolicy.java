@@ -20,25 +20,23 @@ public interface DeliveryPolicy extends Policy {
 
 		@Override
 		public Courrier allocateCourrier(ArrayList<Courrier> courriers, Order order) {
-			if (courriers.size()==0) {
-				System.out.println("The system doesn't have any courrier at all");
-				return null;
-			}
-			else {
-				Collections.sort(courriers);
-				int i=0;
-				while(courriers.get(i).isOn_duty()==false) {
-					if(i+1<courriers.size()) {
-						i=i+1;
-					}
-					else {
-						System.out.println("There is no courier available");
-						return null;
-					}
+			Courrier cour=null;
+			ArrayList<Courrier> courierLibre=new ArrayList<Courrier>();
+			for (Courrier courier : courriers) {
+				if(courier.isOn_duty()==true) {
+					courierLibre.add(courier);
 				}
 			}
-			System.out.println("The system has found a courier available");
-			return courriers.get(0);
+			if (courierLibre.size()!=0) {
+				Collections.sort(courierLibre);
+				cour=courierLibre.get(0);
+			}
+			else {
+				System.out.println("No courier available now for this delivery");
+				return null;
+			}
+			System.out.println("The system  fair delivery has found a courier available");
+			return cour;
 		}
 
 	}
@@ -51,45 +49,30 @@ public interface DeliveryPolicy extends Policy {
 		@Override
 		public Courrier allocateCourrier(ArrayList<Courrier> courriers, Order order) {
 			Coordinate restauCord=order.getRestaurant().getLocation();
-			int i=0;
-			int positionCourierList=0;
-			if (courriers.size()==0) {
-				System.out.println("The system doesn't have any courrier at all");
-				return null;
+			ArrayList<Courrier> courierLibre=new ArrayList<Courrier>();
+			for (Courrier courier : courriers) {
+				if(courier.isOn_duty()==true) {
+					courierLibre.add(courier);
+				}
+			}
+			Courrier courierIni=null;
+			if (courierLibre.size()!=0) {
+				courierIni= courierLibre.get(0);
+				double d=computeDistance(restauCord, courierIni.getPosition());
+				for(Courrier courier : courierLibre) {
+					if(d>=computeDistance(restauCord, courier.getPosition())) {
+						courierIni=courier;
+					}
+				}
 			}
 			else {
-				while(courriers.get(i).isOn_duty()==false) {
-					if(i+1<courriers.size()) {
-						//System.out.println(i);
-						i=i+1;
-						//System.out.println(i);
-						//System.out.println(courriers.get(i));
-					}
-					else {
-						System.out.println("There is no courier available");
-						return null;
-					}
-				}
-				double d=computeDistance(restauCord, courriers.get(i).getPosition());
-				for (int j=i;j<courriers.size();j++) {
-					if(courriers.get(j).isOn_duty()==true) {
-						//System.out.println(j);
-						//System.out.println(courriers.get(j));
-						if(d>computeDistance(restauCord, courriers.get(j).getPosition())) {
-							d=computeDistance(restauCord, courriers.get(j).getPosition());
-							positionCourierList=j;
-							Courrier courier=courriers.get(positionCourierList);
-							//System.out.println(courier);
-						}
-					}	
-				}
+				System.out.println("No courier available now for this delivery");
+				return null;
 			}
-			System.out.println("Courrier  choosed is"+courriers.get(positionCourierList));
-			return(courriers.get(positionCourierList));
+			System.out.println("The system  fastest has found a courier available");
+			return courierIni;
 		}
-
 	}
-
 }
 
 
