@@ -105,16 +105,17 @@ public class UserInterface {
 	
 	public static void endOrder(Customer customer,ArrayList<String> para) {
 		Order order=customer.getOrderHistory().get(para.get(0));
+		Restaurant restaurant=order.getRestaurant();
+		restaurant.getOrderHystory().put(order.getOrderName(), order);
 		String [] datepara=para.get(1).split("/");
 		int day=Integer.parseInt(datepara[0]);
-		int month=Integer.parseInt(datepara[0]);
-		int year=Integer.parseInt(datepara[0]);		
+		int month=Integer.parseInt(datepara[1]);
+		int year=Integer.parseInt(datepara[2]);		
 		order.setDate(new Date(day,month,year));
 		order.getOrderPrice();
 		MyFoodoraSystem.getInstance().getOrdersHistory().add(order);
 		FidelityCard card = order.getRestaurant().getCustomerFidelityPlans().get(customer);
 		card.update();
-
 		
 	}
 	
@@ -249,9 +250,33 @@ public class UserInterface {
 		restaurant.setMeal_of_the_week(null);
 	}
 	
-	public static void processAction(String line) {
+	public void showTotalProfit() {
+		System.out.println("The total profit of the system is :"+MyFoodoraSystem.getInstance().getSystemProfit()+" €.");
+	}
+	public void showTotalProfit(ArrayList<String> para) {
+		String [] datepara1=para.get(0).split("/");
+		int day1=Integer.parseInt(datepara1[0]);
+		int month1=Integer.parseInt(datepara1[1]);
+		int year1=Integer.parseInt(datepara1[2]);
+		Date startDate= new Date(day1,month1,year1);
 		
-		}
+		String [] datepara2=para.get(0).split("/");
+		int day2=Integer.parseInt(datepara2[0]);
+		int month2=Integer.parseInt(datepara2[1]);
+		int year2=Integer.parseInt(datepara2[2]);
+		Date endDate= new Date(day2,month2,year2);
+		
+		double profit =MyFoodoraSystem.getInstance().getSystemProfit(startDate,endDate);
+		System.out.println("The total profit of the system between"+startDate.toString()+" and"+ endDate.toString()+" is:"+profit+" €.");
+		
+	}
+	
+	public void associateCard(ArrayList<String> para) {
+		Customer customer= MyFoodoraSystem.getInstance().getClient(para.get(0));
+	}
+	
+	public void showCourierDeliveries() {
+	}
 
 }
 

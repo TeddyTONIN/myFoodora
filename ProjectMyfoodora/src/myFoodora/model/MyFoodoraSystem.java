@@ -109,4 +109,14 @@ public class MyFoodoraSystem{
 	
 	
 	
+	public double getSystemProfit(Date startDate,Date enDate) {
+		double s=0;
+		for (Order order:ordersHistory) {
+			if(order.getDate().isBefore(enDate)==true && order.getDate().isBefore(startDate)==false) {
+				s=s+profitForOneOrder(order);
+			}
+		}
+		return s;
+	}
+	
 }

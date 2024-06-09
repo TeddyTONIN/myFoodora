@@ -10,6 +10,7 @@ public class Restaurant extends User {
 	private  HashMap<String, ArrayList<MenuItem>> menu = new HashMap<>();
 	private Meal meal_of_the_week;
     private HashMap<Customer,FidelityCard> customerFidelityPlans = new HashMap<Customer,FidelityCard>();
+    private HashMap<String,Order> orderHystory;
     
 
 	private  double genericDiscountFactor =0.5;
@@ -35,6 +36,7 @@ public class Restaurant extends User {
         menu.put("main_dish", new ArrayList<MenuItem>());
         menu.put("dessert", new ArrayList<MenuItem>());
         menu.put("meals",new ArrayList<MenuItem>());
+        this.orderHystory=new HashMap<String, Order>();
 	}
 
 	public String getName() {
@@ -107,13 +109,6 @@ public class Restaurant extends User {
 		return customerFidelityPlans;
 	}
 
-	public void addDish(String name, String category, String type,double price) {
-		DishFactory dishFactory = new DishFactory();
-		Dish dish = dishFactory.createDish(name,category,type,price);
-		ArrayList<MenuItem> dishes = menu.get(category);
-		dishes.add(dish);
-		
-	}
 
 	
 	public void removeDish(Dish dish) {
@@ -209,4 +204,10 @@ public class Restaurant extends User {
 			}
 		}
 	}
+
+	public HashMap<String, Order> getOrderHystory() {
+		return orderHystory;
+	}
+	
+	
 }

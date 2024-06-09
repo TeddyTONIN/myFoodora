@@ -29,6 +29,7 @@ public class testAddItem2Order {
 				paraRestau.add("TourDargent");
 				paraRestau.add("45.1,66.2");
 				paraRestau.add("12345678");	
+				paraRestau.add("TourDargent");
 				UserInterface.registerRestaurant(paraRestau);
 				
 				//ajout d'un dish au restau

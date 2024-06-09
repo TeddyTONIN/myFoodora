@@ -12,6 +12,7 @@ import org.junit.Test;
 import myFoodora.model.Coordinate;
 import myFoodora.model.Courrier;
 import myFoodora.model.Customer;
+import myFoodora.model.Date;
 import myFoodora.model.Dish;
 import myFoodora.model.DishCategory;
 import myFoodora.model.FoodCategory;
@@ -69,7 +70,7 @@ public class UserInterfaceTest {
 		
 		//création d'un order vide
 		Order orderVide= new Order(MyFoodoraSystem.getInstance().getClient("JonaliversCustomer"),MyFoodoraSystem.getInstance().getRestaurant("TourDargent"),"vide");
-		
+		MyFoodoraSystem.getInstance().getClient("JonaliversCustomer").getOrderHistory().put("vide", orderVide);
 		//Création d'un meal vide 
 		Restaurant restaurant =MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
 		Full_meal meal=new Full_meal("SaveurDAfrique");
@@ -154,7 +155,26 @@ public class UserInterfaceTest {
 	public void testAddDish2Meal() {
 		Restaurant restaurant =MyFoodoraSystem.getInstance().getRestaurant("TourDargent");
 		Meal meal=restaurant.getMealItem("SaveurDAfrique");
-		assertNotNull(restaurant.getMealItem("SaveurDAfrique"));
+		ArrayList<String> paraAdd=new ArrayList<String>();
+		paraAdd.add("poissonR");
+		paraAdd.add("SaveurDAfrique");
+		UserInterface.addDish2Meal(restaurant,paraAdd);
+		assertTrue(restaurant.getMealItem("SaveurDAfrique").getItem1().getName().equals("poissonR"));
+	}
+	
+	@Test 
+	public void testCreatOrder() {
+		
+	}
+	@Test
+	public void testEndOrder() {
+		Customer customer = MyFoodoraSystem.getInstance().getClient("JonaliversCustomer");
+		ArrayList<String> para=new ArrayList<String>();
+		para.add("vide");
+		para.add("9/6/2024");
+		UserInterface.endOrder(customer, para);
+		Date date= new Date(9,6,2024);
+		assertTrue(customer.getOrderHistory().get("vide").getDate().equals(date));
 	}
 	
 }
