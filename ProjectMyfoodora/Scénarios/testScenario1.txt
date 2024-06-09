@@ -3,7 +3,7 @@ registerRestaurant ChezPizzaRestau 10,3 Restau 123ChezRestau
 registerRestaurant Hotspur 4,3 Hottt 123Hott
 registerRestaurant FriedChicken 4,3 FriedChick 123FriedChick
 registerCustomer Bernard Arnaud Bernaud 18,3 123Bernau
-associateCard Bernaud PoinFidelityCard
+associateCard Bernaud PointFidelityCard
 registerCustomer Fernando Karen Ferdinand 18,19 123Ferdinand
 registerCourier Fagla Toti Fati 56,5 123Fati
 registerCourier Kolo Randal Kolodal 4,5 123kolodal

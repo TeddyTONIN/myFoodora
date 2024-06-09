@@ -184,7 +184,7 @@ public class LecteurScenario {
 							UserInterface.registerCustomer(parameters);
 							System.out.println("Création du client "+parameters.get(0)+" reussie");
 							break;
-						case "registerCourrier":
+						case "registerCourier":
 							UserInterface.registerCourrier(parameters);
 							System.out.println("Création du courrier "+parameters.get(0)+" reussie");
 							break;

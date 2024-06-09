@@ -287,13 +287,13 @@ public class UserInterface {
 	public static void associateCard(ArrayList<String> para) {
 		Customer customer = MyFoodoraSystem.getInstance().getClient(para.get(0));
 		FidelityCard fcard =customer.getFidelityCard();
-		if (para.get(1)=="BasicFidelityCard") {
+		if (para.get(1).equals("BasicFidelityCard")) {
 			fcard=new BasicFidelityCard(customer);
 		}
-		else if (para.get(1)=="LotteryFidelityCard") {
+		else if (para.get(1).equals("LotteryFidelityCard")) {
 			fcard=new LotteryFidelityCard(customer);
 		}
-		else if (para.get(1)=="PointFidelityCard"){
+		else if (para.get(1).equals("PointFidelityCard")){
 			fcard=new PointFidelityCard(customer);
 		}
 		else System.out.println("The card type is unknown");	
