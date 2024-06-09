@@ -12,20 +12,8 @@ import myFoodora.model.Restaurant;
 
 public class MealFactory implements AbstractFactory {
 	
-
-    public Meal createMeal(String name, Dish item1, Dish item2, Dish item3) {
-        if (item3 == null) {
-            // If item3 is not provided, create a regular Meal
-
-            return new Meal(name,item1,item2);
-            } 
-        else{
-            // If item3 is provided, create a Full_meal
-            return new Full_meal(name, item1, item2, item3);
-        }
-    }
-    public Full_meal createMeal(String name) {
-		return new Full_meal(name);
+    public Full_meal createMeal(String name, Restaurant restaurant) {
+		return new Full_meal(name,restaurant);
     	
     }
 	

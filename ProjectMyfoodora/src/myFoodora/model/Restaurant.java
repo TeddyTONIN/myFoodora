@@ -12,7 +12,7 @@ public class Restaurant extends User {
 	private HashMap<Customer, FidelityCard> customerFidelityPlans = new HashMap<Customer, FidelityCard>();
 	private HashMap<String, Order> orderHystory;
 
-	private double genericDiscountFactor = 0.5;
+	private double genericDiscountFactor = 0.05;
 
 	private double specialDiscountFactor = 0.1;
 
